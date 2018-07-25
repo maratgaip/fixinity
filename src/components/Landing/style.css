@@ -1,3 +1,128 @@
 .landing {
   width: 100%;
 }
+.logo {
+  height: 50px;
+}
+.header {
+  background: url("./assets/header.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  height: 600px;
+  padding-top: 20px;
+}
+.header ul {
+  color: #fff;
+}
+.header ul li{
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media screen and (max-width: 1400px) {
+  .top {
+    padding: 0 50px;
+  }
+}
+/* Large Screen */
+@media screen and (min-width: 1401px) {
+  .repair-phone {
+    margin-top: 350px !important;
+  }
+}
+
+/* Ipad */
+@media screen and (max-width: 950px) {
+  .container {
+    /*padding: 0 80px;*/
+  }
+  .header ul li{
+    margin: 0 10px;
+  }
+}
+
+.repair-phone {
+  margin: 0 auto;
+  font-size: 25px;
+  margin-top: 30%;
+  border-radius: 18px;
+  background-color: white;
+  display: inline-block;
+  position: absolute;
+  cursor: pointer;
+  z-index: 100;
+  margin-left: calc(0% - 100px);
+  padding: 18px;
+  transition: all .3s;
+  color: #000;
+  text-decoration: none;
+}
+.repair-phone:hover {
+  box-shadow: 0 0 20px rgba(33,33,33,.8);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 100px;
+}
+
+.slogan {
+  text-align: left;
+  font-size: 30px;
+  color: #fff;
+  text-align-last: right;
+  position: absolute;
+  left: 20%;
+  top: 25%;
+}
+
+.box {
+  width: 30%;
+  padding: 30px;
+  border: solid 1px #eee;
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.step {
+  font-size: 40px;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 20px;
+}
+.content {
+  margin: 50px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.mid_banner {
+  background-color: #f2f2f2;
+}
+.mid_box {
+  width: 25%;
+  display: inline-block;
+  border-left: solid 1px #ccc;
+  box-sizing: border-box;
+  padding: 20px;
+}
+.mid_title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #999999;
+}
+.mid_content {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.title {
+  margin-top: 50px;
+}
