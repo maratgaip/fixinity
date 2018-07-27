@@ -10,7 +10,7 @@ class RepairPhone extends Component {
       <Fragment>
         <Header />
         <div className="container">
-        <div className="content">
+        <div className="content-device">
           <Link to="/repair/iphone" className="box">Sub Category</Link>
           <Link to="/repair/ipad" className="box">Sub Category</Link>
         </div>

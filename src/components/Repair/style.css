@@ -1,7 +1,7 @@
-.content-device {
+.content-repair {
   text-align: center;
   margin-top: 10%; }
-  .content-device .box {
+  .content-repair .box {
     box-sizing: border-box;
     display: inline-block;
     border: solid 1px;
@@ -10,7 +10,7 @@
     text-decoration: none;
     transition: all .3s;
     font-size: 30px; }
-    .content-device .box:hover {
+    .content-repair .box:hover {
       background-color: #ccc; }
-    .content-device .box:first-of-type {
+    .content-repair .box:first-of-type {
       margin-right: 100px; }
