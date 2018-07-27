@@ -5,6 +5,9 @@
 * ```yarn install ``` or ``` npm install``` - To install all dependencies
 * ```yarn start  ``` or ```  npm start``` - To start the project
 
+
+* ```yarn watch-css  ``` or ```  npm watch-css``` - To build/watch scss files into css
+
 ##Structure
 
 ``````

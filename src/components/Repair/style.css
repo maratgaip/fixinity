@@ -1,7 +1,7 @@
-.content {
+.content-device {
   text-align: center;
   margin-top: 10%; }
-  .content .box {
+  .content-device .box {
     box-sizing: border-box;
     display: inline-block;
     border: solid 1px;
@@ -10,7 +10,7 @@
     text-decoration: none;
     transition: all .3s;
     font-size: 30px; }
-    .content .box:hover {
+    .content-device .box:hover {
       background-color: #ccc; }
-    .content .box:first-of-type {
+    .content-device .box:first-of-type {
       margin-right: 100px; }
