@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
+
 import logo from './assets/logo3.png';
 import './style.css';
 
 class Landing extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="landing">
         <div className="header">
           <div className="container">
             <div className="top">
@@ -20,7 +22,7 @@ class Landing extends Component {
               </ul>
             </div>
             <div className="slogan">We'll repair your iPhone, iPad for cheap & <br/> give lifetime warranty</div>
-            <a href="/#" className="repair-phone">repair my phone</a>
+            <Link to="repair-phone" className="repair-phone">repair my phone</Link>
           </div>
         </div>
         <div className="container">

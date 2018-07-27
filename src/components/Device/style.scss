@@ -1,0 +1,20 @@
+.content {
+  text-align: center;
+  margin-top: 10%;
+  .box {
+    box-sizing: border-box;
+    display: inline-block;
+    border: solid 1px;
+    padding: 100px;
+    color: black;
+    text-decoration: none;
+    transition: all .3s;
+    font-size: 30px;
+    &:hover {
+      background-color: #ccc;
+    }
+    &:first-of-type {
+      margin-right: 100px;
+    }
+  }
+}

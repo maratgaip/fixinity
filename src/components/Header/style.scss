@@ -1,0 +1,15 @@
+
+.header-component {
+  background: url("./assets/header.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  padding: 30px;
+
+  .logo {
+    height: 50px;
+  }
+  .container {
+      max-width: 1200px;
+      margin: 0 auto;
+  }
+}
