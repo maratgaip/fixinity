@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
-import Header from '../Header';
+import Header from '../Common/Header';
 import './style.css';
 
 class RepairPhone extends Component {

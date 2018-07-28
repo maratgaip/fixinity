@@ -6,6 +6,9 @@ import './App.css';
 import Landing from './components/Landing';
 import RepairPhone from './components/Repair';
 import Device from './components/Device';
+import Model from './components/Model';
+import Color from './components/Color';
+import ZipCode from './components/ZipCode';
 
 const App = props => {
   const { history } = props;
@@ -13,6 +16,9 @@ const App = props => {
   return (
     <ConnectedRouter history={history}>
       <Switch>
+        <Route path="/repair/:device/:model/:color/zip-code" component={ZipCode} />
+        <Route path="/repair/:device/:model/:color" component={Color} />
+        <Route path="/repair/:device/:model" component={Model} />
         <Route path="/repair/:device" component={Device} />
         <Route path="/repair" component={RepairPhone} />
         <Route path="/" component={Landing} />

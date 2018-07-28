@@ -1,0 +1,34 @@
+.content-device {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 30px;
+  flex-flow: row wrap; }
+  .content-device .box {
+    box-sizing: border-box;
+    text-decoration: none;
+    transition: all .3s;
+    padding: 1rem;
+    display: flex;
+    margin: 10px 3%;
+    flex-basis: 200px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: 2px solid #afafaf;
+    color: #636262;
+    height: 60px;
+    border-radius: 50px;
+    font-size: 18px; }
+    .content-device .box:hover {
+      background-color: #ccc; }
+
+.device-title {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 100px;
+  color: #777; }

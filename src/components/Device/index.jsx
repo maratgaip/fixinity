@@ -1,23 +1,26 @@
-import React, { Component, Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import Header from '../Header';
-import './style.css';
+import Steps from '../Common/Steps';
 
-class RepairPhone extends Component {
+class Device extends Component {
   render() {
+    // Getting device from router ["iphone", "ipad"]
+    const { device } = this.props.match.params;
+
+    // Getting title, model based URL param
+    const { title, model } = this.props[device];
+
     return (
-      <Fragment>
-        <Header />
-        <div className="container">
-        <div className="content-device">
-          <Link to="/repair/iphone" className="box">Sub Category</Link>
-          <Link to="/repair/ipad" className="box">Sub Category</Link>
-        </div>
-        </div>
-      </Fragment>
+      <Steps list={model} title={title} />
     );
   }
 }
 
-export default RepairPhone;
+const mapStateToProps = (state) => {
+  // Getting Device from Redux
+  return state.root.device
+};
+
+// Connecting Redux to the component
+export default connect(mapStateToProps)(Device);
