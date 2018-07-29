@@ -20,6 +20,7 @@ const colors = [
 const initialState = {
   token: localStorage.getItem('token'),
   error: null,
+  zipCodes: [1,2,3],
   device: {
     iphone: {
       title: "Select iPhone Model",

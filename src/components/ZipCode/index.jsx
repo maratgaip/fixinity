@@ -2,22 +2,48 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import Header from '../Common/Header';
+import SearchIcon from './assets/search.svg';
 import './style.css';
 
 class ZipCode extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      zipCode: '',
+    }
+  }
+
+  onSubmit = () => {
+    const { zipCode } = this.state;
+    const { zipCodes } = this.props;
+    if (!zipCode.length) {
+      return false
+    }
+    if (!zipCodes.includes(Number(zipCode))) {
+      const { device, model } = this.props.match.params;
+      this.props.history.push({
+        pathname: '/no-support',
+        state: { device: `${device} ${model}`, zipCode }
+      })
+    }
+  }
+
+  onChange = e => this.setState({zipCode: e.target.value});
+
   render() {
-    // Getting device from router ["iphone", "ipad"]
-    const { device, model } = this.props.match.params;
-
-    // Getting color, model based URL param
-    const { color } = this.props[device];
-
     return (
     <Fragment>
       <Header />
       <div className="container">
         <div className="steps-title">Enter Your Zip Code</div>
-        <div className="steps-body">
+        <div className="zip-code-body">
+          <div className="zip-code">
+            <input className="zip-code-input" type="number" placeholder="Enter your ZIP code" onChange={this.onChange} value={this.state.zipcode} />
+            <button className="zip-code-button" onClick={this.onSubmit}>
+              <img src={SearchIcon} />
+            </button>
+          </div>
         </div>
       </div>
     </Fragment>
@@ -25,6 +51,6 @@ class ZipCode extends Component {
   }
 }
 
-const mapStateToProps = ({root: {device}}) => device;
+const mapStateToProps = ({root: {zipCodes}}) => ({zipCodes});
 
 export default connect(mapStateToProps)(ZipCode);

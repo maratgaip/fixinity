@@ -9,6 +9,7 @@ import Device from './components/Device';
 import Model from './components/Model';
 import Color from './components/Color';
 import ZipCode from './components/ZipCode';
+import NoSupport from './components/NoSupport';
 
 const App = props => {
   const { history } = props;
@@ -21,6 +22,7 @@ const App = props => {
         <Route path="/repair/:device/:model" component={Model} />
         <Route path="/repair/:device" component={Device} />
         <Route path="/repair" component={RepairPhone} />
+        <Route path="/no-support" component={NoSupport} />
         <Route path="/" component={Landing} />
       </Switch>
     </ConnectedRouter>
