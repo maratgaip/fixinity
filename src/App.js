@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 
@@ -10,6 +10,7 @@ import Model from './components/Model';
 import Color from './components/Color';
 import ZipCode from './components/ZipCode';
 import NoSupport from './components/NoSupport';
+import Schedule from './components/Schedule';
 
 const App = props => {
   const { history } = props;
@@ -17,6 +18,7 @@ const App = props => {
   return (
     <ConnectedRouter history={history}>
       <Switch>
+        <Route path="/repair/:device/:model/:color/zip-code/:zipcode/schedule" component={Schedule} />
         <Route path="/repair/:device/:model/:color/zip-code" component={ZipCode} />
         <Route path="/repair/:device/:model/:color" component={Color} />
         <Route path="/repair/:device/:model" component={Model} />

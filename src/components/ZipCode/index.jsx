@@ -26,6 +26,9 @@ class ZipCode extends Component {
         pathname: '/no-support',
         state: { device: `${device} ${model}`, zipCode }
       })
+    } else {
+      const url = `zip-code/${zipCode}/schedule`;
+      this.props.history.push(url)
     }
   }
 
@@ -41,7 +44,7 @@ class ZipCode extends Component {
           <div className="zip-code">
             <input className="zip-code-input" type="number" placeholder="Enter your ZIP code" onChange={this.onChange} value={this.state.zipcode} />
             <button className="zip-code-button" onClick={this.onSubmit}>
-              <img src={SearchIcon} />
+              <img src={SearchIcon} alt="search" />
             </button>
           </div>
         </div>

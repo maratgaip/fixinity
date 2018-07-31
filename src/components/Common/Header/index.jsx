@@ -9,7 +9,7 @@ class Landing extends Component {
     return (
       <div className="header-component">
         <div className="container">
-          <Link to="/"><img src={logo} className="logo" /></Link>
+          <Link to="/"><img src={logo} alt="logo" className="logo" /></Link>
         </div>
 
       </div>

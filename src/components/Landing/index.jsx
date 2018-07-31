@@ -11,7 +11,7 @@ class Landing extends Component {
         <div className="header">
           <div className="container">
             <div className="top">
-              <img src={logo} className="logo" />
+              <img src={logo} alt="logo" className="logo" />
               <ul>
                 <li>Home</li>
                 <li>Become an iTech</li>
