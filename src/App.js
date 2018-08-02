@@ -11,6 +11,7 @@ import Color from './components/Color';
 import ZipCode from './components/ZipCode';
 import NoSupport from './components/NoSupport';
 import Schedule from './components/Schedule';
+import withTracker from './withTracker';
 
 const App = props => {
   const { history } = props;
@@ -18,14 +19,14 @@ const App = props => {
   return (
     <ConnectedRouter history={history}>
       <Switch>
-        <Route path="/repair/:device/:model/:color/zip-code/:zipcode/schedule" component={Schedule} />
-        <Route path="/repair/:device/:model/:color/zip-code" component={ZipCode} />
-        <Route path="/repair/:device/:model/:color" component={Color} />
-        <Route path="/repair/:device/:model" component={Model} />
-        <Route path="/repair/:device" component={Device} />
-        <Route path="/repair" component={RepairPhone} />
-        <Route path="/no-support" component={NoSupport} />
-        <Route path="/" component={Landing} />
+        <Route path="/repair/:device/:model/:color/zip-code/:zipcode/schedule" component={withTracker(Schedule)} />
+        <Route path="/repair/:device/:model/:color/zip-code" component={withTracker(ZipCode)} />
+        <Route path="/repair/:device/:model/:color" component={withTracker(Color)} />
+        <Route path="/repair/:device/:model" component={withTracker(Model)} />
+        <Route path="/repair/:device" component={withTracker(Device)} />
+        <Route path="/repair" component={withTracker(RepairPhone)} />
+        <Route path="/no-support" component={withTracker(NoSupport)} />
+        <Route path="/" component={withTracker(Landing)} />
       </Switch>
     </ConnectedRouter>
   );
