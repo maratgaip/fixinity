@@ -36,13 +36,10 @@ class NoSupport extends Component {
     const { info } = this.state;
     const { date, time } = info;
     e.preventDefault();
-    console.log('date',date)
-    console.log('time',time)
     if (!date.length || !time.length) {
       this.setState({showErrors: true})
     } else {
-      const { color, device, model, zipcode} = this.props;
-      debugger;
+      const { color, device, model, zipcode} = this.props.match.params;
       const payload = {
         ...info,
         color,

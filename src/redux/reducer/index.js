@@ -148,7 +148,6 @@ const initialState = {
 const rootReducer = (state = initialState, {type, info}) => {
   switch (type) {
     case SEND_APPOINTMENT: {
-      console.log('igo', info)
       return {
         ...state,
         appointment: '',
