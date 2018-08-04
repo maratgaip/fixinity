@@ -41,8 +41,17 @@ class NoSupport extends Component {
     if (!date.length || !time.length) {
       this.setState({showErrors: true})
     } else {
+      const { color, device, model, zipcode} = this.props;
+      debugger;
+      const payload = {
+        ...info,
+        color,
+        device,
+        model,
+        zipcode,
+      };
       this.setState({showErrors: false});
-      this.props.submitAppointment(info)
+      this.props.submitAppointment(payload)
     }
     return false;
   };

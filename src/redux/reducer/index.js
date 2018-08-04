@@ -136,6 +136,15 @@ const initialState = {
   },
 };
 
+/*"\"city\" is required, but it was not defined.",
+   "\"state\" is required, but it was not defined.",
+   "\"fullName\" is required, but it was not defined.",
+   "\"device\" is required, but it was not defined.",
+   "\"model\" is required, but it was not defined.",
+   "\"color\" is required, but it was not defined.",
+   "\"issue\" is required, but it was not defined.",
+   "\"zip\" is required, but it was not defined."*/
+
 const rootReducer = (state = initialState, {type, info}) => {
   switch (type) {
     case SEND_APPOINTMENT: {
