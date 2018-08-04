@@ -16,13 +16,12 @@ const fetchJSON = (url, options = {}) =>
 
 function* sendAppointment({info}) {
   const options = {
-    body: JSON.stringify({info}),
+    body: JSON.stringify(info),
     method: 'POST',
     headers: { 'Content-Type': 'application/json' }
   };
 
   try {
-    console.log(options)
     const { token } = yield call(fetchJSON, `${apiEndPoint}/api/jobs`, options);
     yield put({ type: SEND_APPOINTMENT_SUCCESS, payload: token });
   } catch (error) {
