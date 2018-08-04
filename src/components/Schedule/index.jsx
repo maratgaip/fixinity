@@ -77,7 +77,7 @@ class NoSupport extends Component {
             <div className="schedule-content address">
               <h3>Tell us where to send a technician:</h3>
               <input fixtype="address" required className="contact-input required" placeholder="Enter Your Location" onChange={this.onChange}/>
-              <input fixtype="suite" className="contact-input required" placeholder="Add / suite (optional)" onChange={this.onChange}/>
+              <input fixtype="suite" className="contact-input" placeholder="Add / suite (optional)" onChange={this.onChange}/>
               <input fixtype="instructions" className="contact-input" placeholder="Add Instructions (optional)" onChange={this.onChange}/>
             </div>
             <div className="schedule-content address">

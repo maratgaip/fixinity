@@ -22,6 +22,7 @@ function* sendAppointment({info}) {
   };
 
   try {
+    console.log(options)
     const { token } = yield call(fetchJSON, `${apiEndPoint}/api/jobs`, options);
     yield put({ type: SEND_APPOINTMENT_SUCCESS, payload: token });
   } catch (error) {
