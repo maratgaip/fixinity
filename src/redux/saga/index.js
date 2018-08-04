@@ -1,6 +1,9 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 
-import { AUTH_REQUEST, AUTH_SUCCESS, AUTH_FAILURE } from '../reducer';
+import { types } from '../reducer';
+
+const { SEND_APPOINTMENT, SEND_APPOINTMENT_SUCCESS, SEND_APPOINTMENT_FAILED } = types;
+const apiEndPoint = "https://fixinity-api-staging.herokuapp.com";
 
 const fetchJSON = (url, options = {}) =>
   new Promise((resolve, reject) => {
@@ -11,17 +14,16 @@ const fetchJSON = (url, options = {}) =>
       .catch(error => reject(error));
   });
 
-function* authorize({ payload: { login, password } }) {
+function* sendAppointment({info}) {
   const options = {
-    body: JSON.stringify({ login, password }),
+    body: JSON.stringify({info}),
     method: 'POST',
     headers: { 'Content-Type': 'application/json' }
   };
 
   try {
-    const { token } = yield call(fetchJSON, '/login', options);
-    yield put({ type: AUTH_SUCCESS, payload: token });
-    localStorage.setItem('token', token);
+    const { token } = yield call(fetchJSON, `${apiEndPoint}/api/jobs`, options);
+    yield put({ type: SEND_APPOINTMENT_SUCCESS, payload: token });
   } catch (error) {
     let message;
     switch (error.status) {
@@ -29,13 +31,12 @@ function* authorize({ payload: { login, password } }) {
       case 401: message = 'Invalid credentials'; break;
       default: message = 'Something went wrong';
     }
-    yield put({ type: AUTH_FAILURE, payload: message });
-    localStorage.removeItem('token');
+    yield put({ type: SEND_APPOINTMENT_FAILED, payload: message });
   }
 }
 
 function* Saga() {
-  yield takeLatest(AUTH_REQUEST, authorize);
+  yield takeLatest(SEND_APPOINTMENT, sendAppointment);
 }
 
 export default Saga;

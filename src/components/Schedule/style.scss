@@ -302,6 +302,7 @@ $slider-fix: 20px;
     @media only screen and (max-width: 768px) {
       width: 90%;
     }
+    margin-bottom: 10px;
   }
   .contact-input {
     padding: 10px 20px;
@@ -316,6 +317,13 @@ $slider-fix: 20px;
     &:focus {
       outline: none;
     }
+
+    &.required {
+      background: url('./assets/required.png');
+      background-size: 12px;
+      background-repeat: no-repeat;
+      background-position: 99% 50%;
+    }
   }
 }
 
@@ -329,4 +337,18 @@ $slider-fix: 20px;
   border: none;
   border-radius: 20px;
   cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.error {
+  font-size: 16px;
+  border-radius: 20px;
+  width: 30%;
+  margin: 0 auto;
+  padding: 5px;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

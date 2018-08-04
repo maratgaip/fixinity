@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux';
 
-export const AUTH_REQUEST = 'AUTH_REQUEST';
-export const AUTH_SUCCESS = 'AUTH_SUCCESS';
-export const AUTH_FAILURE = 'AUTH_FAILURE';
+export const types = {
+  SEND_APPOINTMENT_SUCCESS: 'SEND_APPOINTMENT_SUCCESS',
+  SEND_APPOINTMENT_FAILED: 'SEND_APPOINTMENT_FAILED',
+  SEND_APPOINTMENT: 'SEND_APPOINTMENT',
+}
 
-export const authorize = (login, password) => ({
-  type: AUTH_REQUEST,
-  payload: { login, password }
-});
+const { SEND_APPOINTMENT } = types;
+
 
 // TODO add proper colors for each device
 const colors = [
@@ -20,7 +20,71 @@ const colors = [
 const initialState = {
   token: localStorage.getItem('token'),
   error: null,
-  zipCodes: [95129, 94501],
+  zipCodes: [
+    94002,
+    94003,
+    94005,
+    94010,
+    94010,
+    94011,
+    94012,
+    94014,
+    94014,
+    94015,
+    94016,
+    94017,
+    94018,
+    94019,
+    94020,
+    94021,
+    94025,
+    94025,
+    94026,
+    94027,
+    94027,
+    94028,
+    94028,
+    94029,
+    94030,
+    94031,
+    94037,
+    94038,
+    94044,
+    94045,
+    94059,
+    94060,
+    94061,
+    94062,
+    94062,
+    94062,
+    94063,
+    94064,
+    94065,
+    94066,
+    94067,
+    94070,
+    94071,
+    94074,
+    94080,
+    94083,
+    94096,
+    94098,
+    94099,
+    94128,
+    94128,
+    94307,
+    94308,
+    94401,
+    94402,
+    94403,
+    94404,
+    94404,
+    94405,
+    94406,
+    94407,
+    94408,
+    94409,
+  ],
   device: {
     iphone: {
       title: "Select iPhone Model",
@@ -57,29 +121,29 @@ const initialState = {
         "5": colors,
       },
     }
-  }
+  },
+  appointment: {
+    address:  "",
+    email: "",
+    fullName: "",
+    device: "",
+    model: "",
+    issue: "",
+    color: "",
+    phone: "",
+    zip: '',
+    instructions:""
+  },
 };
-/*
-const authReducer = (state = initialState, { type, payload }) => {
-  switch (type) {
-    case AUTH_SUCCESS: {
-      return { ...state, token: payload };
-    }
-    case AUTH_FAILURE: {
-      return { ...state, error: payload }
-    }
-    default:
-      return state;
-  }
-};*/
 
-const rootReducer = (state = initialState, { type, payload }) => {
+const rootReducer = (state = initialState, {type, info}) => {
   switch (type) {
-    case AUTH_SUCCESS: {
-      return { ...state };
-    }
-    case AUTH_FAILURE: {
-      return { ...state }
+    case SEND_APPOINTMENT: {
+      console.log('igo', info)
+      return {
+        ...state,
+        appointment: '',
+      };
     }
     default:
       return state;
@@ -90,5 +154,12 @@ const reducer = combineReducers({
   root: rootReducer,
   router: routerReducer
 });
+
+
+
+export const actions = {
+  submitAppointment: info => ({type: SEND_APPOINTMENT, info})
+};
+
 
 export default reducer;

@@ -27,7 +27,7 @@ const times = [
   "9:00pm",
   "10:00pm",
   "11:00pm",
-]
+];
 
 export default class Calendar extends Component {
 
@@ -38,8 +38,8 @@ export default class Calendar extends Component {
     }
   }
   selectDate = (time) => {
-    this.setState({selected: time})
-    // this.props.onChange(m);
+    this.setState({selected: time});
+    this.props.onChange(time);
   };
 
   render() {

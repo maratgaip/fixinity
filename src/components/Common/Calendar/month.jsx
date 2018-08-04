@@ -4,16 +4,12 @@ import cx from 'classnames';
 import range from 'lodash/range';
 import chunk from 'lodash/chunk';
 
-const Day = ({ i, w, d, className, selectedDay, ...props }) => {
-  const prevMonth = w === 0 && i > 7;
-  const nextMonth = w >= 4 && i <= 14;
+const Day = ({ i, d, selectedDay, ...props }) => {
+  const select = selectedDay && selectedDay.date();
   const cls = cx({
-    'prev-month': prevMonth,
-    'next-month': nextMonth,
     'current-day': i === d,
-    'selected': i === selectedDay.date(),
+    'selected': i === select,
   });
-
   return <td className={cls} {...props}>{i}</td>;
 };
 
@@ -22,48 +18,52 @@ export default class Calendar extends Component {
   constructor(props){
     super(props);
     this.state = {
-      selected: moment().utc(),
+      selected: null,
     }
   }
-  selectDate = (i, w) => {
-    const prevMonth = w === 0 && i > 7;
-    const nextMonth = w >= 4 && i <= 14;
-    const m = this.props.moment;
 
-    if (prevMonth) m.subtract(1, 'month');
-    if (nextMonth) m.add(1, 'month');
-
+  selectDate = (i) => {
+    const m = moment().utc();
     m.date(i);
-
-    if ( !prevMonth ) {
-      this.setState({selected: m})
-      // this.props.onChange(m);
-    }
-
+    this.setState({selected: m})
+    this.props.onChange(m);
   };
 
-  render() {
+  getWeeks = () => {
     const today = moment().utc();
-
     // Count of days to from today to last sunday
     const todayDay = today.day();
 
+    const weeks = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const before = weeks.slice(0,todayDay);
+    const after = weeks.slice(todayDay);
+    return after.concat(before);
+  };
+
+  getDays = () => {
+    const today = moment().utc();
+
     const todayDate = today.date();
     const lastDayOfCurrentMonth = today.clone().endOf('month').date();
-
-    const currentMonth = range(todayDate, lastDayOfCurrentMonth + 1);
-
     // How many days we want to show
     const daysToShow = 14;
 
-    const days = [].concat(
-      range(todayDate - todayDay, lastDayOfCurrentMonth + 1),
-      range(1, daysToShow - currentMonth.length + todayDay)
-    );
-    const weeks = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    let days = [];
+    if ((todayDate + daysToShow) < lastDayOfCurrentMonth) {
+      days = [].concat(
+        range(todayDate, todayDate + daysToShow),
+      );
+    }
+    return days
+  };
+
+  render() {
+    const weeks = this.getWeeks();
+    const days = this.getDays();
+    const today = moment().utc();
 
     return (
-      <div className={cx('m-calendar', this.props.className)}>
+      <div className={cx('m-calendar')}>
         <table>
           <thead>
           <tr>

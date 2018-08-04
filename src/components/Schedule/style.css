@@ -215,7 +215,8 @@
     margin: 5%;
     width: 40%;
     display: inline-block;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    margin-bottom: 10px; }
     @media only screen and (max-width: 768px) {
       .schedule-content.address {
         width: 90%; } }
@@ -230,6 +231,11 @@
     width: 100%; }
     .schedule-content .contact-input:focus {
       outline: none; }
+    .schedule-content .contact-input.required {
+      background: url("./assets/required.png");
+      background-size: 12px;
+      background-repeat: no-repeat;
+      background-position: 99% 50%; }
 
 .confirm {
   max-width: 300px;
@@ -240,4 +246,17 @@
   font-size: 16px;
   border: none;
   border-radius: 20px;
-  cursor: pointer; }
+  cursor: pointer;
+  margin-bottom: 20px; }
+
+.error {
+  font-size: 16px;
+  border-radius: 20px;
+  width: 30%;
+  margin: 0 auto;
+  padding: 5px;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  margin-top: 10px;
+  margin-bottom: 10px; }
