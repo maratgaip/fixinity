@@ -2,12 +2,14 @@ import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux';
 
 export const types = {
-  SEND_APPOINTMENT_SUCCESS: 'SEND_APPOINTMENT_SUCCESS',
-  SEND_APPOINTMENT_FAILED: 'SEND_APPOINTMENT_FAILED',
-  SEND_APPOINTMENT: 'SEND_APPOINTMENT',
+  BOOK_APPOINTMENT_SUCCESS: 'BOOK_APPOINTMENT_SUCCESS',
+  BOOK_APPOINTMENT_FAILED: 'BOOK_APPOINTMENT_FAILED',
+  BOOK_APPOINTMENT: 'BOOK_APPOINTMENT',
+  CONFIRM_DETAIL: 'CONFIRM_DETAIL',
+  UPDATE_ISSUE: 'UPDATE_ISSUE',
 }
 
-const { SEND_APPOINTMENT } = types;
+const { BOOK_APPOINTMENT, UPDATE_ISSUE, CONFIRM_DETAIL } = types;
 
 
 // TODO add proper colors for each device
@@ -25,10 +27,8 @@ const initialState = {
     94003,
     94005,
     94010,
-    94010,
     94011,
     94012,
-    94014,
     94014,
     94015,
     94016,
@@ -38,11 +38,8 @@ const initialState = {
     94020,
     94021,
     94025,
-    94025,
     94026,
     94027,
-    94027,
-    94028,
     94028,
     94029,
     94030,
@@ -54,8 +51,6 @@ const initialState = {
     94059,
     94060,
     94061,
-    94062,
-    94062,
     94062,
     94063,
     94064,
@@ -71,13 +66,11 @@ const initialState = {
     94098,
     94099,
     94128,
-    94128,
     94307,
     94308,
     94401,
     94402,
     94403,
-    94404,
     94404,
     94405,
     94406,
@@ -122,35 +115,41 @@ const initialState = {
       },
     }
   },
-  appointment: {
+  info: {
     address:  "",
     email: "",
-    fullName: "",
+    name: "",
     device: "",
     model: "",
     issue: "",
     color: "",
     phone: "",
-    zip: '',
+    zipCode: '',
     instructions:""
   },
 };
 
-/*"\"city\" is required, but it was not defined.",
-   "\"state\" is required, but it was not defined.",
-   "\"fullName\" is required, but it was not defined.",
-   "\"device\" is required, but it was not defined.",
-   "\"model\" is required, but it was not defined.",
-   "\"color\" is required, but it was not defined.",
-   "\"issue\" is required, but it was not defined.",
-   "\"zip\" is required, but it was not defined."*/
-
-const rootReducer = (state = initialState, {type, info}) => {
+const rootReducer = (state = initialState, payload) => {
+  const {type, info} = payload;
   switch (type) {
-    case SEND_APPOINTMENT: {
+    case BOOK_APPOINTMENT: {
       return {
         ...state,
-        appointment: '',
+      };
+    }
+    case CONFIRM_DETAIL: {
+      console.log('info', state.info)
+      return {
+        ...state,
+        info: {
+          ...state.info, ...info,
+        },
+      };
+    }
+    case UPDATE_ISSUE: {
+      return {
+        ...state,
+        info: {...state.info, issue: info},
       };
     }
     default:
@@ -166,7 +165,9 @@ const reducer = combineReducers({
 
 
 export const actions = {
-  submitAppointment: info => ({type: SEND_APPOINTMENT, info})
+  confirmDetail: info => ({type: CONFIRM_DETAIL, info}),
+  updateIssue: info => ({type: UPDATE_ISSUE, info}),
+  bookAppointment: info => ({type: BOOK_APPOINTMENT, info}),
 };
 
 

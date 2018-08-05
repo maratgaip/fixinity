@@ -2,22 +2,30 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Steps from '../Common/Steps';
+import { actions } from '../../redux/reducer';
 
 class Issue extends Component {
+
+  onClick = (content) => {
+    this.props.updateIssue(content)
+  };
+
   render() {
     // Getting device from router ["iphone", "ipad"]
     const { device } = this.props.match.params;
 
     // Getting title, data based URL param
     const { title, data } = this.props[device].issue;
-
     return (
-      <Steps list={data} title={title} />
+      <Steps onClick={this.onClick} list={data} title={title} />
     );
   }
 }
 
 const mapStateToProps = state => state.root.device;
 
-// Connecting Redux to the component
-export default connect(mapStateToProps)(Issue);
+const mapDispatchToProps = (dispatch) => ({
+  updateIssue: (zipCode) => dispatch(actions.updateIssue(zipCode))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Issue);

@@ -13,6 +13,9 @@ class ZipCode extends Component {
       zipCode: '',
     }
   }
+  componentDidMount() {
+    console.log('aa',this.props)
+  }
 
   onSubmit = () => {
     const { zipCode } = this.state;
@@ -42,7 +45,7 @@ class ZipCode extends Component {
         <div className="steps-title">Enter Your Zip Code</div>
         <div className="zip-code-body">
           <div className="zip-code">
-            <input className="zip-code-input" type="number" placeholder="Enter your ZIP code" onChange={this.onChange} value={this.state.zipcode} />
+            <input className="zip-code-input" type="number" placeholder="Enter your ZIP code" onChange={this.onChange} value={this.state.zipCode} />
             <button className="zip-code-button" onClick={this.onSubmit}>
               <img src={SearchIcon} alt="search" />
             </button>

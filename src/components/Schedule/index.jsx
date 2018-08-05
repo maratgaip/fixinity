@@ -8,7 +8,7 @@ import './style.css';
 
 const dateFormat = "MM/DD/YYYY";
 
-class NoSupport extends Component {
+class Schedule extends Component {
 
   constructor(props) {
     super(props);
@@ -39,16 +39,17 @@ class NoSupport extends Component {
     if (!date.length || !time.length) {
       this.setState({showErrors: true})
     } else {
-      const { color, device, model, zipcode} = this.props.match.params;
+      const { color, device, model, zipCode} = this.props.match.params;
       const payload = {
         ...info,
         color,
         device,
         model,
-        zipcode,
+        zipCode,
       };
       this.setState({showErrors: false});
-      this.props.submitAppointment(payload)
+      this.props.confirmDetail(payload)
+      this.props.history.push('/booking');
     }
     return false;
   };
@@ -97,7 +98,6 @@ class NoSupport extends Component {
             }
             <button  className="confirm">Confirm my details</button>
           </form>
-
         </div>
       </Fragment>
     )
@@ -106,7 +106,7 @@ class NoSupport extends Component {
 
 const mapStateToProps = ({root: {zipCodes}}) => ({zipCodes});
 const mapDispatchToProps = (dispatch) => ({
-  submitAppointment: (payload) => dispatch(actions.submitAppointment(payload))
-})
+  confirmDetail: (payload) => dispatch(actions.confirmDetail(payload))
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(NoSupport);
+export default connect(mapStateToProps, mapDispatchToProps)(Schedule);

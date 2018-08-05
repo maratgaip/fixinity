@@ -1,0 +1,354 @@
+
+.schedule-title {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  color: #777;
+}
+
+.schedule-body {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+$color-blue: #1385e5;
+$color-gray: #dfe0e4;
+$color-white: #ffffff;
+$slider-handle-size: 20px;
+$slider-size: 4px;
+$slider-fix: 20px;
+
+.im-btn {
+  display: inline-block;
+  background-color: #ffffff;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  line-height: 1;
+
+  &:before {
+    margin-right: 6px;
+  }
+}
+
+.m-input-moment {
+  display: inline-block;
+  width: 330px;
+  padding: 12px 15px;
+  border-radius: 3px;
+  border: 1px solid $color-gray;
+
+  .options {
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 4px;
+
+    button {
+      float: left;
+      width: 50%;
+      color: $color-blue;
+      text-align: center;
+      font-size: 16px;
+      padding: 7px;
+      border: 1px solid $color-blue;
+      border-radius: 3px;
+
+      &:first-child {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      &:last-child {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      &.is-active {
+        color: #ffffff;
+        background-color: $color-blue;
+      }
+    }
+  }
+
+  .tab {
+    display: none;
+    height: 310px;
+
+    &.is-active {
+      display: block;
+    }
+  }
+
+  .tabs {
+    margin-bottom: 11px;
+  }
+
+  .btn-save {
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+    background-color: $color-blue;
+    padding: 12px 0;
+    text-align: center;
+    color: #ffffff;
+    font-size: 16px;
+    border-radius: 3px;
+  }
+}
+
+.u-slider-time {
+  position: relative;
+  display: inline-block;
+  background-color: $color-gray;
+  border-radius: 3px;
+  height: $slider-size;
+  width: 100%;
+  cursor: pointer;
+
+  .value {
+    position: absolute;
+    background-color: $color-blue;
+    border-radius: 3px;
+    top: 0;
+    height: 100%;
+  }
+
+  .handle {
+    position: absolute;
+    width: $slider-size;
+    height: $slider-size;
+
+    &:after {
+      position: relative;
+      display: block;
+      content: '';
+      top: -$slider-fix/2;
+      left: -($slider-size+$slider-fix)/2;
+      width: $slider-size + $slider-fix;
+      height: $slider-size + $slider-fix;
+      background-color: #fff;
+      border: 3px solid $color-blue;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
+}
+
+.m-calendar {
+  display: inline-block;
+  max-width: 500px;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+  }
+
+  td {
+    padding: 8px 0;
+    text-align: center;
+    cursor: pointer;
+    color: $color-gray;
+    border: 1px solid $color-gray;
+  }
+
+  thead {
+    td {
+      color: $color-blue;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+  }
+
+  tbody td {
+    color: #666666;
+
+    &:hover {
+      background: $color-gray;
+    }
+  }
+
+  .current-day {
+    color: $color-blue;
+    font-weight: bold;
+  }
+
+  .prev-month,
+  .next-month {
+    color: #999999;
+    &:hover {
+      background-color: inherit;
+      color: #999999;
+      cursor: text;
+    }
+  }
+  .selected {
+    background-color: $color-blue;
+    color: white;
+    &:hover {
+      background-color: $color-blue;
+      color: white;
+    }
+  }
+
+  .toolbar {
+    line-height: 30px;
+    color: $color-blue;
+    text-align: center;
+    margin-bottom: 13px;
+
+    button {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      color: #ffffff;
+      border: 1px solid $color-blue;
+      border-radius: 50%;
+      background: $color-blue;
+      font-size: 20px;
+      padding: 0;
+      text-align: center;
+      outline: 0;
+      z-index: 5;
+      cursor: pointer;
+    }
+
+    .prev-month {
+      float: left;
+    }
+
+    .next-month {
+      float: right;
+    }
+
+    .current-date {
+      color: $color-blue;
+    }
+  }
+}
+
+.m-time {
+  color: $color-white;
+
+  .showtime {
+    text-align: center;
+  }
+
+  .separater {
+    display: inline-block;
+    font-size: 32px;
+    font-weight: bold;
+    color: $color-blue;
+    width: 32px;
+    height: 65px;
+    line-height: 65px;
+    text-align: center;
+  }
+
+  .time-text {
+    position: relative;
+    left: -10px;
+    font-size: 15px;
+    color: $color-blue;
+    margin-top: 7px;
+    margin-bottom: 10px;
+  }
+
+  .time {
+    max-width: 500px;
+    text-align: left;
+    margin: 0 auto;
+
+    .hours {
+      display: inline-block;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      color: #666666;
+      border: 1px solid #dfe0e4;
+      margin: 5px;
+      width: 68px;
+      &:hover {
+        background: $color-gray;
+      }
+      &.selected {
+        background-color: $color-blue;
+        color: white;
+        &:hover {
+          background-color: $color-blue;
+          color: white;
+        }
+      }
+      .disabled {
+        color: #dfe0e4;
+      }
+    }
+  }
+}
+
+.schedule-content {
+  margin: 50px 0;
+  &.address {
+    margin: 5%;
+    width: 40%;
+    display: inline-block;
+    box-sizing: border-box;
+    @media only screen and (max-width: 768px) {
+      width: 90%;
+    }
+    margin-bottom: 10px;
+  }
+  .contact-input {
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border: 1px solid #aebcce;
+    border-radius: 10px;
+    margin: 0 0 15px;
+    font-size: 16px;
+    font-weight: 300;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+    }
+
+    &.required {
+      background: url('./assets/required.png');
+      background-size: 12px;
+      background-repeat: no-repeat;
+      background-position: 99% 50%;
+    }
+  }
+}
+
+.confirm {
+  max-width: 300px;
+  margin: 0 auto;
+  background-color: #1385e5;
+  color: white;
+  padding: 15px 30px;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.error {
+  font-size: 16px;
+  border-radius: 20px;
+  width: 30%;
+  margin: 0 auto;
+  padding: 5px;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
