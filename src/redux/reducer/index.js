@@ -126,6 +126,7 @@ const initialState = {
     phone: "",
     zipCode: '',
     city: 'FakeSanJose',
+    state: 'CA',
     instructions:""
   },
 };
