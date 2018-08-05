@@ -5,6 +5,7 @@ import Time from '../Common/Calendar/time';
 import Header from '../Common/Header';
 import { actions } from '../../redux/reducer'
 import './style.css';
+import cx from 'classnames';
 
 const dateFormat = "MM/DD/YYYY";
 
@@ -22,7 +23,7 @@ class Schedule extends Component {
     }
   }
 
-  handleChangeMonth = date => this.setState({ info: {...this.state.info, date: date.format(dateFormat)} });
+  handleChangeMonth = date => this.setState({ info: {...this.state.info, date: date.format(dateFormat), time: ''} });
 
   handleChangeTime = time => this.setState({ info: {...this.state.info, time }});
 
@@ -66,6 +67,13 @@ class Schedule extends Component {
       }
 
     }
+
+    const timeClass = cx({
+      'schedule-content': true,
+      'hidden': this.state.info.date === '',
+
+    });
+
     return (
       <Fragment>
         <Header />
@@ -76,10 +84,9 @@ class Schedule extends Component {
               <h3>1. Pick a Day</h3>
               <Month onChange={this.handleChangeMonth} />
             </div>
-            <div className="schedule-content">
-
+            <div className={timeClass}>
               <h3>2. Pick a Time</h3>
-              <Time onChange={this.handleChangeTime}/>
+              <Time onChange={this.handleChangeTime} selectedDate={this.state.info.date} selectedTime={this.state.info.time}/>
             </div>
             <div className="schedule-content address">
               <h3>Tell us where to send a technician:</h3>

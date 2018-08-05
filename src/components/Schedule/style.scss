@@ -13,6 +13,10 @@
   text-align: center;
 }
 
+.hidden {
+  display:none;
+}
+
 $color-blue: #1385e5;
 $color-gray: #dfe0e4;
 $color-white: #ffffff;
@@ -285,8 +289,9 @@ $slider-fix: 20px;
           color: white;
         }
       }
-      .disabled {
+      &.disabled {
         color: #dfe0e4;
+        cursor: default;
       }
     }
   }
