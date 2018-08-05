@@ -125,6 +125,7 @@ const initialState = {
     color: "",
     phone: "",
     zipCode: '',
+    city: '',
     instructions:""
   },
 };
