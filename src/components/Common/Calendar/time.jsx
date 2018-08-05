@@ -2,13 +2,24 @@ import moment from 'moment';
 import React, { Component } from 'react';
 import cx from 'classnames';
 
-const Time = ({ i, className, selectedDay, ...props }) => {
+const Time = ({ i, selectedTime, selectedDate, ...props }) => {
   const cls = cx({
     'hours': true,
-    'selected': i === selectedDay,
+    'selected': i === selectedTime,
+    'disabled': !isBookable(selectedDate, i),
   });
 
   return <div className={cls} {...props}>{i}</div>;
+};
+
+const isBookable = (selectedDate, slotTime) => {
+  if(selectedDate === '') {
+    return true;
+  }
+  var slotDT = moment(selectedDate + " " + slotTime, "MM/DD/YYYY hh:mmA");
+  var diff = slotDT.diff(moment());
+  var minFromNowToTimeSlot = moment.duration(diff).asMinutes();
+  return minFromNowToTimeSlot > 150; // only bookable if time is > 2.5 hours in the future
 };
 
 const times = [
@@ -31,19 +42,14 @@ const times = [
 
 export default class Calendar extends Component {
 
-  constructor(props){
-    super(props);
-    this.state = {
-      selected: moment().utc(),
+  selectTime = (time) => {
+    if(!isBookable(this.props.selectedDate, time)) {
+      return;
     }
-  }
-  selectDate = (time) => {
-    this.setState({selected: time});
     this.props.onChange(time);
   };
 
   render() {
-
     return (
       <div className={cx('m-time', this.props.className)}>
         <div className="time">
@@ -51,10 +57,11 @@ export default class Calendar extends Component {
             <Time
               key={i}
               i={i}
-              selectedDay={this.state.selected}
-              onClick={() => this.selectDate(i)}
+              selectedTime={this.props.selectedTime}
+              selectedDate={this.props.selectedDate}
+              onClick={() => this.selectTime(i)}
             />
-              )}
+          )}
         </div>
       </div>
     );

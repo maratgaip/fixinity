@@ -10,6 +10,9 @@
   margin: 0 auto;
   text-align: center; }
 
+.hidden {
+  display: none; }
+
 .im-btn {
   display: inline-block;
   background-color: #ffffff;
@@ -206,8 +209,9 @@
         .m-time .time .hours.selected:hover {
           background-color: #1385e5;
           color: white; }
-      .m-time .time .hours .disabled {
-        color: #dfe0e4; }
+      .m-time .time .hours.disabled {
+        color: #dfe0e4;
+        cursor: default; }
 
 .schedule-content {
   margin: 50px 0; }
@@ -260,3 +264,5 @@
   border-color: #f5c6cb;
   margin-top: 10px;
   margin-bottom: 10px; }
+
+/*# sourceMappingURL=style.css.map */
