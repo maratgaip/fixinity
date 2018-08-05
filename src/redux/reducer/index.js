@@ -124,7 +124,7 @@ const initialState = {
     issue: "",
     color: "",
     phone: "",
-    zipCode: '',
+    zipCode: 'FakeSanJose',
     city: '',
     instructions:""
   },
