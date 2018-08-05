@@ -22,7 +22,7 @@ class Landing extends Component {
               </ul>
             </div>
             <div className="slogan">We'll repair your iPhone, iPad for cheap & <br/> give lifetime warranty</div>
-            <Link to="/repair" className="repair-phone">repair my phone</Link>
+            <Link to="/repair/iphone" className="repair-phone">repair my phone</Link>
           </div>
         </div>
         <div className="container">
