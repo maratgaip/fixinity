@@ -330,7 +330,7 @@ const reducer = combineReducers({
 export const actions = {
   confirmDetail: info => ({type: CONFIRM_DETAIL, info}),
   updateIssue: info => ({type: UPDATE_ISSUE, info}),
-  bookAppointment: info => ({type: BOOK_APPOINTMENT, info}),
+  bookAppointment: (info, resolve, reject) => ({type: BOOK_APPOINTMENT, info, resolve, reject}),
   saveToStorage: info => ({type: SAVE_STORAGE, info}),
 };
 

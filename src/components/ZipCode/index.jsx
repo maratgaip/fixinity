@@ -15,7 +15,6 @@ class ZipCode extends Component {
     }
   }
   componentDidMount() {
-    console.log('aa',this.props)
   }
 
   onSubmit = () => {

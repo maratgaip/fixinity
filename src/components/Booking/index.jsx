@@ -18,17 +18,29 @@ class Booking extends Component {
 
   componentWillMount () {
     const { info: { color, device, issue, model, zipCode } } = this.props;
-    const infoFromStorage = localStorage.getItem('info');
+    const infoFromStorage = JSON.parse(localStorage.getItem('info'));
     if (!(color.length && device.length && issue.length && model.length && zipCode.length)) {
-      this.setState({info: JSON.parse(infoFromStorage)})
-      this.props.saveToStorage(JSON.parse(infoFromStorage)); // sync from local storage to redux
+      if (infoFromStorage) {
+        this.setState({info: infoFromStorage})
+        this.props.saveToStorage(infoFromStorage); // sync from local storage to redux
+      } else {
+        // no data in localStorage return to main page
+        this.props.history.push('/')
+      }
     }
   }
 
   onBook = () => {
     const { info } = this.state;
     const { bookAppointment } = this.props;
-    bookAppointment(info)
+    new Promise(function(resolve, reject) {
+      bookAppointment(info, resolve, reject)
+    }).then(() => {
+      this.setState({sendAppointment: true});
+      localStorage.removeItem('info')
+    }).catch((err) => {
+
+    })
   };
 
   getTime = () => {
@@ -41,7 +53,10 @@ class Booking extends Component {
     const { issue, model, device: deviceType } = this.state.info;
     const { device } = this.props;
     const issueId = issue.toLocaleLowerCase().split(' ').join('-'); // do it in redux
-    return `$${device[deviceType].price[model].issues[issueId]}`
+
+    if (device && device[deviceType]) {
+      return `$${device[deviceType].price[model].issues[issueId]}`
+    }
   };
 
   render() {
@@ -55,13 +70,15 @@ class Booking extends Component {
     if (this.state.sendAppointment) {
       bookedContent = (
         <div className="booked-content">
-          <span>Successfully Booked</span>
-          <img src={successImg} className="booked-success" />
+          <div className="booked-content-success">
+            <span>Successfully Booked</span>
+            <img src={successImg} className="booked-success" />
+          </div>
+          <div className="booked-content-contact">We will contact you soon via message</div>
         </div>
       )
     }
     const instructionsContent = instructions && !instructions.length ? <div>{instructions}</div> : null;
-console.log('sendAppointment',this.props.sendAppointment)
     return (
       <Fragment>
         <Header />
@@ -107,7 +124,7 @@ console.log('sendAppointment',this.props.sendAppointment)
                 <li>We're selecting the best tech in your area and will confirm your appointment soon.
                 </li>
                 <li>
-                  Once we assign a technician, we will provide the tech's name and arrival time by sm
+                  Once we assign a technician, we will provide the tech's name and arrival time by sms
                 </li>
                 <div>
                   <h4>Any questions or concerns?</h4>
@@ -127,13 +144,10 @@ console.log('sendAppointment',this.props.sendAppointment)
   }
 }
 
-const mapStateToProps = ({root: {info, device, sendAppointment}}) => {
-  console.log('sendAppointment-container',sendAppointment)
-  return {info, device, sendAppointment}
-};
+const mapStateToProps = ({root: {info, device, sendAppointment}}) => ({info, device, sendAppointment});
 const mapDispatchToProps = (dispatch) => ({
-  bookAppointment: (payload) => dispatch(actions.bookAppointment(payload)),
+  bookAppointment: (payload, resolve, reject) => dispatch(actions.bookAppointment(payload, resolve, reject)),
   saveToStorage: (info) => dispatch(actions.saveToStorage(info))
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Booking);

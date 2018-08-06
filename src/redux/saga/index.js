@@ -14,18 +14,17 @@ const fetchJSON = (url, options = {}) =>
       .catch(error => reject(error));
   });
 
-function* sendAppointment({info}) {
+function* sendAppointment({info, resolve, reject}) {
   const options = {
     body: JSON.stringify(info),
     method: 'POST',
     headers: { 'Content-Type': 'application/json' }
   };
 
-  yield put({ type: BOOK_APPOINTMENT_SUCCESS });
-
-  /*try {
+  try {
     yield call(fetchJSON, `${apiEndPoint}/api/jobs`, options);
     yield put({ type: BOOK_APPOINTMENT_SUCCESS });
+    resolve();
   } catch (error) {
     let message;
     switch (error.status) {
@@ -34,7 +33,7 @@ function* sendAppointment({info}) {
       default: message = 'Something went wrong';
     }
     yield put({ type: BOOK_APPOINTMENT_FAILED, payload: message });
-  }*/
+  }
 }
 
 function* saveToStorage({info}) {
