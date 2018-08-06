@@ -1,16 +1,17 @@
 .booking-device {
   display: inline-block;
-  width: 70%;
+  width: 60%;
   text-align: left;
   .booking-item {
     margin-top: 20px;
     margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
     display: flex;
     .booking-title {
       display: inline-block;
       color: grey;
       font-size: 16px;
-      margin-right: 50px;
+      width: 120px;
     }
     .booking-content {
       display: inline-block;
@@ -22,9 +23,33 @@
 
 .booking-helper {
   display: inline-block;
-  width: 30%;
+  width: 40%;
+  padding-left: 30px;
+  .what-next {
+    li {
+      list-style: none;
+      font-size: 16px;
+      margin: 20px 0;
+    }
+  }
+  .contact-info {
+    span {
+      font-weight: bold;
+    }
+  }
 }
 
 .booking .schedule-body{
   max-width: 800px;
+}
+.booking-body {
+ display: flex;
+}
+.booked-content {
+  margin: 0;
+  margin-top: 20px;
+}
+
+.booked-success {
+  height: 40px;
 }

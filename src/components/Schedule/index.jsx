@@ -40,16 +40,10 @@ class Schedule extends Component {
     if (!date.length || !time.length) {
       this.setState({showErrors: true})
     } else {
-      const { color, device, model, zipCode} = this.props.match.params;
-      const payload = {
-        ...info,
-        color,
-        device,
-        model,
-        zipCode,
-      };
       this.setState({showErrors: false});
-      this.props.confirmDetail(payload)
+      const payload = { ...this.props.info, ...info}
+      this.props.confirmDetail(payload);
+      this.props.saveToStorage(payload);
       this.props.history.push('/booking');
     }
     return false;
@@ -111,9 +105,10 @@ class Schedule extends Component {
   }
 }
 
-const mapStateToProps = ({root: {zipCodes}}) => ({zipCodes});
+const mapStateToProps = ({root: {zipCodes, info}}) => ({zipCodes, info});
 const mapDispatchToProps = (dispatch) => ({
-  confirmDetail: (payload) => dispatch(actions.confirmDetail(payload))
+  confirmDetail: (payload) => dispatch(actions.confirmDetail(payload)),
+  saveToStorage: (payload) => dispatch(actions.saveToStorage(payload))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Schedule);

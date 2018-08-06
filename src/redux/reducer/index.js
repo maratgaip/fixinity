@@ -7,9 +7,11 @@ export const types = {
   BOOK_APPOINTMENT: 'BOOK_APPOINTMENT',
   CONFIRM_DETAIL: 'CONFIRM_DETAIL',
   UPDATE_ISSUE: 'UPDATE_ISSUE',
+  SAVE_STORAGE: 'SAVE_STORAGE',
+  SAVE_STORAGE_SUCCESS: 'SAVE_STORAGE_SUCCESS',
 }
 
-const { BOOK_APPOINTMENT, UPDATE_ISSUE, CONFIRM_DETAIL } = types;
+const { BOOK_APPOINTMENT, UPDATE_ISSUE, CONFIRM_DETAIL, SAVE_STORAGE, BOOK_APPOINTMENT_SUCCESS } = types;
 
 const colors = {
   "gold": { content: "Gold", url: "gold", id: "gold" },
@@ -24,6 +26,7 @@ const colors = {
 const initialState = {
   token: localStorage.getItem('token'),
   error: null,
+  sendAppointment: false,
   zipCodes: [
     94002,
     94003,
@@ -93,7 +96,7 @@ const initialState = {
         { content: "6 Plus", url: "6-plus", id: "6-plus" },
         { content: "6", url: "6", id: "6" },
         { content: "SE", url: "se", id: "se" },
-        { content: "5/5C/5S", url: "5s", id: "5" },
+        { content: "5/5C/5S", url: "5", id: "5" },
       ],
       issue:{
         title: "Select Issue Type",
@@ -286,8 +289,13 @@ const rootReducer = (state = initialState, payload) => {
         ...state,
       };
     }
+    case BOOK_APPOINTMENT_SUCCESS: {
+      return {
+        ...state,
+        sendAppointment: true,
+      };
+    }
     case CONFIRM_DETAIL: {
-      console.log('info', state.info)
       return {
         ...state,
         info: {
@@ -299,6 +307,12 @@ const rootReducer = (state = initialState, payload) => {
       return {
         ...state,
         info: {...state.info, issue: info},
+      };
+    }
+    case SAVE_STORAGE: {
+      return {
+        ...state,
+        info,
       };
     }
     default:
@@ -317,6 +331,7 @@ export const actions = {
   confirmDetail: info => ({type: CONFIRM_DETAIL, info}),
   updateIssue: info => ({type: UPDATE_ISSUE, info}),
   bookAppointment: info => ({type: BOOK_APPOINTMENT, info}),
+  saveToStorage: info => ({type: SAVE_STORAGE, info}),
 };
 
 

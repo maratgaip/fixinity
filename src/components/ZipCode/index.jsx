@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Header from '../Common/Header';
 import SearchIcon from './assets/search.svg';
+import { actions } from '../../redux/reducer'
 import './style.css';
 
 class ZipCode extends Component {
@@ -19,17 +20,18 @@ class ZipCode extends Component {
 
   onSubmit = () => {
     const { zipCode } = this.state;
-    const { zipCodes } = this.props;
+    const { zipCodes, info, match: { params: { device, model, color } } } = this.props;
     if (!zipCode.length) {
       return false
     }
     if (!zipCodes.includes(Number(zipCode))) {
-      const { device, model } = this.props.match.params;
       this.props.history.push({
         pathname: '/no-support',
         state: { device: `${device} ${model}`, zipCode }
       })
     } else {
+      const selectedData = {...info, model, device, color, zipCode};
+      this.props.saveToStorage(selectedData);
       const url = `zip-code/${zipCode}/schedule`;
       this.props.history.push(url)
     }
@@ -57,6 +59,11 @@ class ZipCode extends Component {
   }
 }
 
-const mapStateToProps = ({root: {zipCodes}}) => ({zipCodes});
+const mapStateToProps = ({root: {zipCodes, info}}) => ({zipCodes, info});
 
-export default connect(mapStateToProps)(ZipCode);
+
+const mapDispatchToProps = (dispatch) => ({
+  saveToStorage: (payload) => dispatch(actions.saveToStorage(payload))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ZipCode);

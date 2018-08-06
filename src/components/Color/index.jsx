@@ -16,8 +16,17 @@ class Issue extends Component {
 
     // Getting title, data based URL param
     const { title, data } = this.props[device].issue;
+    const price = this.props.iphone.price;
+    const newData = [];
+    const pricesForIssues = price[this.props.match.params.model].issues;
+    data.forEach(item => {
+      if (pricesForIssues[item.id]) {
+        const newObj = {...item, price: pricesForIssues[item.id]}
+        newData.push(newObj)
+      }
+    });
     return (
-      <Steps onClick={this.onClick} list={data} title={title} />
+      <Steps price={price} onClick={this.onClick} list={newData} title={title} />
     );
   }
 }

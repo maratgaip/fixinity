@@ -2,7 +2,7 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 
 import { types } from '../reducer';
 
-const { BOOK_APPOINTMENT, BOOK_APPOINTMENT_SUCCESS, BOOK_APPOINTMENT_FAILED } = types;
+const { BOOK_APPOINTMENT, BOOK_APPOINTMENT_SUCCESS, BOOK_APPOINTMENT_FAILED, SAVE_STORAGE, SAVE_STORAGE_SUCCESS } = types;
 const apiEndPoint = "https://fixinity-api-staging.herokuapp.com";
 
 const fetchJSON = (url, options = {}) =>
@@ -21,9 +21,11 @@ function* sendAppointment({info}) {
     headers: { 'Content-Type': 'application/json' }
   };
 
-  try {
-    const { token } = yield call(fetchJSON, `${apiEndPoint}/api/jobs`, options);
-    yield put({ type: BOOK_APPOINTMENT_SUCCESS, payload: token });
+  yield put({ type: BOOK_APPOINTMENT_SUCCESS });
+
+  /*try {
+    yield call(fetchJSON, `${apiEndPoint}/api/jobs`, options);
+    yield put({ type: BOOK_APPOINTMENT_SUCCESS });
   } catch (error) {
     let message;
     switch (error.status) {
@@ -32,11 +34,21 @@ function* sendAppointment({info}) {
       default: message = 'Something went wrong';
     }
     yield put({ type: BOOK_APPOINTMENT_FAILED, payload: message });
-  }
+  }*/
+}
+
+function* saveToStorage({info}) {
+  localStorage.setItem('info', JSON.stringify(info));
+  yield put({ type: SAVE_STORAGE_SUCCESS });
+}
+function* getFromStorage(info) {
+  localStorage.removeItem('info');
+  yield put({ type: SAVE_STORAGE_SUCCESS });
 }
 
 function* Saga() {
   yield takeLatest(BOOK_APPOINTMENT, sendAppointment);
+  yield takeLatest(SAVE_STORAGE, saveToStorage);
 }
 
 export default Saga;

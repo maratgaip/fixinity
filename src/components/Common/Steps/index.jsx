@@ -18,12 +18,22 @@ class RepairPhone extends Component {
     const { list, title, pathname } = this.props;
 
     // Creating repeated content based on passed data
-    const stepsContent = list.map(({ content, url, id }) =>  {
+    const stepsContent = list.map(({ content, url, id, price }) =>  {
 
       // Creating a new link (currentUrl + nextStep)
       const link = `${pathname}/${url}`;
-
-      return <Link to={link} key={id} onClick={() => this.onClick(content)} className="box">{ content }</Link>
+      let priceContent = null;
+      let stepClass = "box";
+      if (price) {
+        priceContent = (
+          <div className="price-label">${price}</div>
+        )
+        stepClass = "box price-box"
+      }
+      return <Link to={link} key={id} onClick={() => this.onClick(content)} className={stepClass}>
+        { priceContent }
+        { content }
+        </Link>
     });
 
     return (

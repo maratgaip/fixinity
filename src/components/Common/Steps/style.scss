@@ -16,7 +16,6 @@
     margin: 10px 3%;
     flex-basis: 200px;
 
-
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -38,4 +37,14 @@
   text-align: center;
   margin-top: 100px;
   color: #777;
+}
+
+.price-label {
+  background-color: #2b64b0;
+  padding: 18px;
+  color: white;
+  position: absolute;
+  right: 0px;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
 }

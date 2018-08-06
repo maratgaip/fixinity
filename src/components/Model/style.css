@@ -15,6 +15,7 @@
     display: flex;
     margin: 10px 3%;
     flex-basis: 200px;
+    position: relative;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -26,6 +27,9 @@
     font-size: 18px; }
     .steps-body .box:hover {
       background-color: #ccc; }
+    .steps-body .box.price-box {
+      padding-right: 5rem;
+      flex-basis: 250px; }
 
 .steps-title {
   font-size: 30px;
