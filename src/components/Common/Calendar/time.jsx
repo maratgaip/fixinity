@@ -14,9 +14,12 @@ const Time = ({ i, selectedTime, selectedDate, ...props }) => {
 
 const isBookable = (selectedDate, slotTime) => {
   if(selectedDate === '') {
-    return true;
+    return false;
   }
   var slotDT = moment(selectedDate + " " + slotTime, "MM/DD/YYYY hh:mmA");
+  if (slotDT.weekday() === 1 || slotDT.weekday() === 2 || slotDT.weekday() === 5) {
+    return false;
+  }
   var diff = slotDT.diff(moment());
   var minFromNowToTimeSlot = moment.duration(diff).asMinutes();
   return minFromNowToTimeSlot > 150; // only bookable if time is > 2.5 hours in the future
