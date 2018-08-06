@@ -23,14 +23,14 @@ export default class Calendar extends Component {
   }
 
   selectDate = (i) => {
-    const m = moment().utc();
+    const m = moment().utc().local();
     m.date(i);
     this.setState({selected: m})
     this.props.onChange(m);
   };
 
   getWeeks = () => {
-    const today = moment().utc();
+    const today = moment().utc().local();
     // Count of days to from today to last sunday
     const todayDay = today.day();
 
@@ -41,7 +41,7 @@ export default class Calendar extends Component {
   };
 
   getDays = () => {
-    const today = moment().utc();
+    const today = moment().utc().local();
 
     const todayDate = today.date();
     const lastDayOfCurrentMonth = today.clone().endOf('month').date();
@@ -60,7 +60,7 @@ export default class Calendar extends Component {
   render() {
     const weeks = this.getWeeks();
     const days = this.getDays();
-    const today = moment().utc();
+    const today = moment().utc().local();
 
     return (
       <div className={cx('m-calendar')}>
