@@ -13,34 +13,38 @@ class Landing extends Component {
             <div className="top">
               <img src={logo} alt="logo" className="logo" />
               <ul>
-                <li>Home</li>
-                <li>Become an iTech</li>
-                <li>Repair</li>
-                <li>Blog</li>
-                <li>Locations</li>
-                <li>Pricing</li>
+                {/*<li>Home</li>*/}
+                {/*<li>Become an iTech</li>*/}
+                {/*<li>Repair</li>*/}
+                {/*<li>Blog</li>*/}
+                {/*<li>Locations</li>*/}
+                {/*<li>Pricing</li>*/}
               </ul>
             </div>
-            <div className="slogan">We'll repair your iPhone, iPad for cheap & <br/> give lifetime warranty</div>
-            <Link to="/repair/iphone" className="repair-phone">repair my phone</Link>
+            <div className="slogan">
+              <div>Need your iPhone fixed?</div>
+              <div>We will come to you!</div>
+            </div>
+            <Link to="/repair" className="repair-phone">Book Now</Link>
+            <div className="sub-slogan">Quality service.   Good price.   7 days a week.</div>
           </div>
         </div>
         <div className="container">
           <h2 className="title">Easy way to get your phone repaired</h2>
-        <div className="content">
-          <div className="box">
-            <div className="step">STEP 1</div>
-            If your device breaks, don't panic. We offer a huge range of mobile phone & tablet repair services.
+          <div className="content">
+            <div className="box">
+              <div className="step">STEP 1</div>
+              If your device breaks, don't panic. We offer a huge range of mobile phone & tablet repair services.
+            </div>
+            <div className="box">
+              <div className="step">STEP 2</div>
+              We'll come to you whenever & wherever.
+            </div>
+            <div className="box">
+              <div className="step">STEP 3</div>
+              Our trained technicians will repair your mobile phone or tablet device quickly & efficiently.
+            </div>
           </div>
-          <div className="box">
-            <div className="step">STEP 2</div>
-            We'll come to you whenever & wherever.
-          </div>
-          <div className="box">
-            <div className="step">STEP 3</div>
-            Our trained technicians will repair your mobile phone or tablet device quickly & efficiently.
-          </div>
-        </div>
         </div>
         <div className="mid_banner">
           <div className="container">

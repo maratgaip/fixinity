@@ -8,8 +8,8 @@
   .header {
     background: url("./assets/header.jpg");
     background-repeat: no-repeat;
-    background-size: 100vw;
-    height: 600px;
+    //background-size: 100vw;
+    height: 350px;
     padding-top: 20px;
   }
   .header ul {
@@ -34,7 +34,7 @@
   /* Large Screen */
   @media screen and (min-width: 1401px) {
     .repair-phone {
-      margin-top: 350px !important;
+      //margin-top: 350px !important;
     }
   }
 
@@ -51,14 +51,12 @@
   .repair-phone {
     margin: 0 auto;
     font-size: 25px;
-    margin-top: 30%;
+    margin-top: 30px;
     border-radius: 18px;
     background-color: white;
     display: inline-block;
-    position: absolute;
     cursor: pointer;
     z-index: 100;
-    margin-left: calc(0% - 100px);
     padding: 18px;
     transition: all .3s;
     color: #000;
@@ -78,10 +76,18 @@
     text-align: left;
     font-size: 30px;
     color: #fff;
-    text-align-last: right;
-    position: absolute;
-    left: 20%;
-    top: 25%;
+    text-align: center;
+    margin-top: 40px;
+    div {
+      margin-bottom: 10px;
+    }
+  }
+  .sub-slogan {
+    text-align: left;
+    font-size: 17px;
+    color: #fff;
+    text-align: center;
+    margin-top: 15px;
   }
 
   .box {
