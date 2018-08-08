@@ -7,8 +7,7 @@
   .landing .header {
     background: url("./assets/header.jpg");
     background-repeat: no-repeat;
-    background-size: 100vw;
-    height: 600px;
+    height: 350px;
     padding-top: 20px; }
   .landing .header ul {
     color: #fff; }
@@ -23,9 +22,6 @@
   @media screen and (max-width: 1400px) {
     .landing .top {
       padding: 0 50px; } }
-  @media screen and (min-width: 1401px) {
-    .landing .repair-phone {
-      margin-top: 350px !important; } }
   @media screen and (max-width: 950px) {
     .landing .container {
       /*padding: 0 80px;*/ }
@@ -34,14 +30,12 @@
   .landing .repair-phone {
     margin: 0 auto;
     font-size: 25px;
-    margin-top: 30%;
+    margin-top: 30px;
     border-radius: 18px;
     background-color: white;
     display: inline-block;
-    position: absolute;
     cursor: pointer;
     z-index: 100;
-    margin-left: calc(0% - 100px);
     padding: 18px;
     transition: all .3s;
     color: #000;
@@ -56,10 +50,16 @@
     text-align: left;
     font-size: 30px;
     color: #fff;
-    text-align-last: right;
-    position: absolute;
-    left: 20%;
-    top: 25%; }
+    text-align: center;
+    margin-top: 40px; }
+    .landing .slogan div {
+      margin-bottom: 10px; }
+  .landing .sub-slogan {
+    text-align: left;
+    font-size: 17px;
+    color: #fff;
+    text-align: center;
+    margin-top: 15px; }
   .landing .box {
     width: 30%;
     padding: 30px;
@@ -93,3 +93,5 @@
     margin-top: 5px; }
   .landing .title {
     margin-top: 50px; }
+
+/*# sourceMappingURL=style.css.map */
