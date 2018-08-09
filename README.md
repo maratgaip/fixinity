@@ -5,8 +5,10 @@
 * ```yarn install ``` or ``` npm install``` - To install all dependencies
 * ```yarn start  ``` or ```  npm start``` - To start the project
 
+##Deployment
 
-* ```yarn watch-css  ``` or ```  npm watch-css``` - To build/watch scss files into css
+* ```git push staging master``` - To deploy heroku staging server
+* ```git push live master``` - To deploy heroku production server
 
 ##Structure
 
@@ -32,5 +34,3 @@
 
 
 ``````
-
-asdad
