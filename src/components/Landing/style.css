@@ -8,7 +8,8 @@
     background: url("./assets/header.jpg");
     background-repeat: no-repeat;
     height: 350px;
-    padding-top: 20px; }
+    padding-top: 20px;
+    background-size: cover; }
   .landing .header ul {
     color: #fff; }
   .landing .header ul li {
@@ -93,5 +94,3 @@
     margin-top: 5px; }
   .landing .title {
     margin-top: 50px; }
-
-/*# sourceMappingURL=style.css.map */

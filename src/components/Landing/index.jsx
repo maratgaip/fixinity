@@ -25,7 +25,7 @@ class Landing extends Component {
               <div>Need your iPhone fixed?</div>
               <div>We will come to you!</div>
             </div>
-            <Link to="/repair" className="repair-phone">Book Now</Link>
+            <Link to="/repair/iphone" className="repair-phone">Book Now</Link>
             <div className="sub-slogan">Quality service.   Good price.   7 days a week.</div>
           </div>
         </div>
