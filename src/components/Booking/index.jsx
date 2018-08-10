@@ -31,7 +31,7 @@ class Booking extends Component {
   }
 
   onBook = () => {
-    const { info } = this.state;
+    const info = {...this.state.info, price: this.getPrice()};
     const { bookAppointment } = this.props;
     new Promise(function(resolve, reject) {
       bookAppointment(info, resolve, reject)
