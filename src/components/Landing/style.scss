@@ -134,4 +134,62 @@
   .title {
     margin-top: 50px;
   }
+
+  @media screen and (max-width: 767px) {
+    .content {
+      display: block;
+      margin-bottom: 0;
+      .box{
+        width: 100%;
+      }
+    }
+    .mid_box {
+      width: 100%;
+      border-bottom: solid 1px #ccc;
+    }
+
+    .top {
+      .logo {
+        height: 35px;
+      }
+    }
+    .slogan {
+      margin-top: 0;
+      font-size: 25px;
+    }
+    .repair-phone {
+      margin-top: 15px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .content {
+      display: block;
+      margin-bottom: 0;
+      .box{
+        width: 100%;
+      }
+    }
+    .mid_box {
+      width: 100%;
+      border-bottom: solid 1px #ccc;
+    }
+
+    .top {
+      display: inline-block;
+      padding: 0;
+      padding-left: 20px;
+      text-align: left;
+      width: 100%;
+      .logo {
+        height: 35px;
+      }
+    }
+    .slogan {
+      margin-top: 0;
+    }
+    .repair-phone {
+      margin-top: 15px;
+    }
+  }
 }

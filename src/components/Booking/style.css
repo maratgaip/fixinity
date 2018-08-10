@@ -46,3 +46,13 @@
 
 .booked-content-success {
   line-height: 40px; }
+
+@media screen and (max-width: 767px) {
+  .booking-body {
+    display: block; }
+    .booking-body .booking-device, .booking-body .booking-helper {
+      width: 100%;
+      padding: 0; }
+    .booking-body .what-next {
+      margin: 0;
+      padding: 0; } }

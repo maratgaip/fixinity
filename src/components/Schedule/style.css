@@ -264,3 +264,9 @@
   border-color: #f5c6cb;
   margin-top: 10px;
   margin-bottom: 10px; }
+
+@media screen and (max-width: 767px) {
+  .schedule-body {
+    padding: 0 10px; }
+  .m-time .time {
+    text-align: center; } }

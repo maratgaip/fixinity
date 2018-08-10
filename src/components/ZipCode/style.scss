@@ -46,3 +46,10 @@
     outline: none;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .zip-code-input {
+    padding-left: 15px;
+    font-size: 14px;
+  }
+}

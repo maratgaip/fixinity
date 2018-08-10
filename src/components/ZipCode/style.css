@@ -37,3 +37,8 @@
   cursor: pointer; }
   .zip-code-button:hover, .zip-code-button:focus {
     outline: none; }
+
+@media screen and (max-width: 767px) {
+  .zip-code-input {
+    padding-left: 15px;
+    font-size: 14px; } }
