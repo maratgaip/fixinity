@@ -55,7 +55,7 @@ class Booking extends Component {
     const issueId = issue.toLocaleLowerCase().split(' ').join('-'); // do it in redux
 
     if (device && device[deviceType]) {
-      return `$${device[deviceType].price[model].issues[issueId]}`
+      return ${device[deviceType].price[model].issues[issueId]}
     }
   };
 
@@ -99,7 +99,7 @@ class Booking extends Component {
               </div>
               <div className="booking-item">
                 <div className="booking-title">Cost</div>
-                <div className="booking-content">{this.getPrice()}</div>
+                <div className="booking-content">${this.getPrice()}</div>
               </div>
               <div className="booking-item">
                 <div className="booking-title">Time</div>

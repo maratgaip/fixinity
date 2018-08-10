@@ -272,7 +272,7 @@ const initialState = {
     device: "",
     model: "",
     issue: "",
-    price: "",
+    price: 0,
     color: "",
     phone: "",
     zipCode: '',
