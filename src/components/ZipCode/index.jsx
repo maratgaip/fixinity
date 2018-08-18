@@ -36,6 +36,12 @@ class ZipCode extends Component {
     }
   }
 
+  onKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      this.onSubmit();
+    }
+  }
+
   onChange = e => this.setState({zipCode: e.target.value});
 
   render() {
@@ -46,7 +52,10 @@ class ZipCode extends Component {
         <div className="steps-title">Enter Your Zip Code</div>
         <div className="zip-code-body">
           <div className="zip-code">
-            <input className="zip-code-input" type="number" placeholder="Enter your ZIP code" onChange={this.onChange} value={this.state.zipCode} />
+            <input className="zip-code-input" type="number" placeholder="Enter your ZIP code"
+             onChange={this.onChange}
+             onKeyPress={this.onKeyPress} 
+             value={this.state.zipCode} />
             <button className="zip-code-button" onClick={this.onSubmit}>
               <img src={SearchIcon} alt="search" />
             </button>
