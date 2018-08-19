@@ -12,7 +12,8 @@ class Booking extends Component {
     super(props)
     this.state = {
       info: props.info,
-      sendAppointment: props.sendAppointment,
+      // sendAppointment: props.sendAppointment,
+      sendAppointment: true,
     }
   }
 
@@ -28,6 +29,10 @@ class Booking extends Component {
         this.props.history.push('/')
       }
     }
+  }
+
+  componentDidMount () {
+    this.onBook();
   }
 
   onBook = () => {
@@ -129,13 +134,12 @@ class Booking extends Component {
                 <div>
                   <h4>Any questions or concerns?</h4>
                   <div className="contact-info">
-                    <span>310 986 7703</span> or <a href="mail:support@fixinity.com">support@fixinity.com</a>
+                    <span>415 948 0937</span> or <a href="mail:support@fixinity.com">support@fixinity.com</a>
                   </div>
                 </div>
               </ul>
             </div>
             </div>
-            {bookedContent}
           </div>
 
         </div>

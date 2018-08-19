@@ -97,7 +97,7 @@ class Schedule extends Component {
             {
               errors.map(error=><div key={error} className="error">{error}</div>)
             }
-            <button  className="confirm">Confirm my details</button>
+            <button  className="confirm">Book Now</button>
           </form>
         </div>
       </Fragment>
