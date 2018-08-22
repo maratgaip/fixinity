@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
+import ReactGA from 'react-ga';
 import { connect } from 'react-redux';
 
 import Steps from '../Common/Steps';
 import { actions } from '../../redux/reducer';
 
+
 class Issue extends Component {
 
   onClick = (content) => {
+
     this.props.updateIssue(content)
+    ReactGA.event({
+      category: 'Booking',
+      action: 'Select Issue',
+      label: content
+    })
   };
 
   render() {

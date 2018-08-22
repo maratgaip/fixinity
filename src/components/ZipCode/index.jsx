@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
+import ReactGA from 'react-ga';
 import { connect } from 'react-redux';
-
 import Header from '../Common/Header';
 import SearchIcon from './assets/search.svg';
 import { actions } from '../../redux/reducer'
@@ -28,11 +28,23 @@ class ZipCode extends Component {
         pathname: '/no-support',
         state: { device: `${device} ${model}`, zipCode }
       })
+
+      ReactGA.event({
+        category: 'Booking',
+        action: 'No Support',
+        label: zipCode
+      })
     } else {
       const selectedData = {...info, model, device, color, zipCode};
       this.props.saveToStorage(selectedData);
       const url = `zip-code/${zipCode}/schedule`;
       this.props.history.push(url)
+
+      ReactGA.event({
+        category: 'Booking',
+        action: 'Zip Match',
+        label: zipCode
+      })
     }
   }
 
@@ -42,7 +54,17 @@ class ZipCode extends Component {
     }
   }
 
-  onChange = e => this.setState({zipCode: e.target.value});
+  onChange = e => {
+    this.setState({zipCode: e.target.value});
+
+    if(e.target.value && e.target.value.length >4) {
+      ReactGA.event({
+        category: 'Booking',
+        action: 'Enter Zip',
+        label: e.target.value
+      })
+    } 
+  }
 
   render() {
     return (
