@@ -41,4 +41,8 @@
 @media screen and (max-width: 767px) {
   .zip-code-input {
     padding-left: 15px;
-    font-size: 14px; } }
+    font-size: 14px; }
+  .zip-code-button, .zip-code-input {
+    height: 45px; }
+  .zip-code-button {
+    padding: 6px 34px; } }
