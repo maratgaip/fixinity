@@ -40,10 +40,10 @@ function* saveToStorage({info}) {
   localStorage.setItem('info', JSON.stringify(info));
   yield put({ type: SAVE_STORAGE_SUCCESS });
 }
-function* getFromStorage(info) {
+/*function* getFromStorage(info) {
   localStorage.removeItem('info');
   yield put({ type: SAVE_STORAGE_SUCCESS });
-}
+}*/
 
 function* Saga() {
   yield takeLatest(BOOK_APPOINTMENT, sendAppointment);

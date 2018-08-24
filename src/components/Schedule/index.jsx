@@ -29,9 +29,7 @@ class Schedule extends Component {
 
   handleChangeTime = (time) => {
     this.setState({ info: {...this.state.info, time }});
-    ReactDOM.
-      findDOMNode(this.refProceed.current).
-      scrollIntoView();
+    ReactDOM.findDOMNode(this.refProceed.current).scrollIntoView();
   }
 
   onChange = e => {

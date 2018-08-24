@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import Iframe from 'react-iframe'
 
-import logo from './assets/logo3.png';
+// import logo from './assets/logo3.png';
 import './style.css';
 
 class Landing extends Component {
@@ -18,8 +18,7 @@ class Landing extends Component {
 
 export default Landing;
 
-
-{/*
+/*
 <div className="landing">
   <div className="header">
     <div className="container">
@@ -79,4 +78,4 @@ export default Landing;
       </div>
     </div>
   </div>
-</div>*/}
+</div>*/

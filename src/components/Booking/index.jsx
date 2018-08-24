@@ -77,7 +77,7 @@ class Booking extends Component {
         <div className="booked-content">
           <div className="booked-content-success">
             <span>Successfully Booked</span>
-            <img src={successImg} className="booked-success" />
+            <img src={successImg} alt="booking" className="booked-success" />
           </div>
           <div className="booked-content-contact">We will contact you soon via message</div>
         </div>
