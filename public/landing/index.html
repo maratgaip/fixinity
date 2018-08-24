@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Ulan: Renaming header.
+    <title>vApp 1.0 - Oslo</title>
+    -->
+    <title>Fixinity: Convenient on-demand repairs by trained technicians.</title>
+    <!-- Enable Zoom on Mobile Device -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta property="og:image" content="#" />
+
+    <!-- Favicon CSS -->
+    <!-- <link rel="icon" type="image/png" sizes="32x32" href="favicon.png"> -->
+    <link rel="icon" type="image/png" sizes="32x32" href="Fixinity.png">
+
+    <!-- Fonts CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,500i,700" rel="stylesheet">
+    <link href="assets/dist/fonts/SFProDisplay.css" rel="stylesheet">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="assets/dist/css/vendors.min.css">
+    <link rel="stylesheet" href="assets/dist/css/app.min.css">
+
+</head>
+
+<body>
+
+    <div class="main-wrapper home-1">
+        <!-- =========== Navigation Start ============ -->
+        <header class="navigation navigation__transparent navigation__right">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="navigation-content">
+                            <a href="#" class="navigation__brand">
+                                <img class="navigation-main__logo" src="images/logo.png" alt="">
+                                <img class="sticky-nav__logo" src="images/logo.png" alt="sticky logo">
+                            </a>
+                            <button class="navigation__toggler"></button>
+                            <!-- offcanvas toggle button -->
+                            <nav class="navigation-wrapper">
+                                <button class="offcanvas__close">✕</button>
+                                <!-- offcanvas close button -->
+
+                                <!-- Ulan: Moved "Book Now" button to the beginning. -->
+                                <!-- Ulan: Need to either increase the button height or move it a bit down. -->
+                                <div class="navigation-button">
+                                    <a href="/repair/iphone" target="_parent" class="db-btn db-btn__outline nav-cta-btn">Book Now</a>
+                                </div>
+
+                                <ul class="navigation-menu" id="nav">
+                                    <li class="navigation-menu__item">
+                                        <!-- Ulan:
+                                        <a class="navigation-menu__link" href="#feature">How It Works</a>
+                                        <a class="navigation-menu__link" href="#working-process">How It Works</a>
+                                        -->
+                                        <a class="navigation-menu__link" href="#how_it_works">How It Works</a>
+                                    </li>
+                                    <li class="navigation-menu__item">
+                                        <a class="navigation-menu__link" href="#warranty">Warranty</a>
+                                    </li>
+
+                                    <li class="navigation-menu__item">
+                                        <!-- Ulan: removing reference to an external file.
+                                        <a class="navigation-menu__link" href="faq.html">FAQs</a>
+                                        -->
+                                        <a class="navigation-menu__link" href="#faq">FAQs</a>
+                                    </li>
+
+                                    <li class="navigation-menu__item">
+                                        <a class="navigation-menu__link" href="#testimonial">Testimonials</a>
+                                    </li>
+
+<!-- Ulan: Leave the code below commented out for time being.
+To be added when the content for these sections is ready.
+                                    <li class="navigation-menu__item">
+                                        <a class="navigation-menu__link" href="#">Additional Info</a>
+-->
+                                        <!-- Dropdown main -->
+                                        <!-- Ulan: These items are yet to be built. -->
+<!--
+                                        <ul class="navigation-dropdown">
+                                          <li class="navigation-menu__item">
+                                              <a class="navigation-menu__link" href="aboutus.html">About Us</a>
+                                          </li>
+
+                                          <li class="navigation-menu__item">
+                                              <a class="navigation-menu__link" href="#">Blog</a>
+                                          </li>
+                                          <li class="navigation-menu__item">
+                                              <a class="navigation-menu__link" href="contactus.html">Contact Us</a>
+                                          </li>
+                                        </ul>
+                                    </li>
+-->
+                                    <!-- Dropdown main End -->
+                                </ul>
+                            </nav>
+                            <div class="navigation-menu" id="nav">
+                              <!--Ulan: alternative phone number:
+                              <h6><a href="tel:+16503438088"><font color = "white">650.343.8088</font></a></h6>
+                              -->
+                              <h6><a href="tel:+14159480937"><font color = "white">(415) 948-0937</font></a></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- row end -->
+            </div>
+        </header>
+        <!-- =========== Navigation End ============ -->
+
+        <!-- =========== Hero Start ============ -->
+        <section class="hero-one hero-text-light content-left">
+            <br><br><br><br><br>
+            <img src="images/header_bg.png" alt="media-content" class="media__content">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="hero">
+                            <div class="hero-wrapper">
+                                <div class="hero-content">
+                                    <h1 class="hero__title">Need your iPhone fixed? We will come to you!</h1>
+                                    <!-- Ulan: Commenting out redundant text
+                                    <p class="hero__caption">No one cares about products. People care about ideas. Is a product an idea? Noup. Is a brand? A good one is.</p>
+                                    -->
+                                    <a href="/repair/iphone" target="_parent" class="db-btn db-btn__lemon db-btn__type-md">Book Now</a>
+                                </div>
+                                <!-- hero content end -->
+                            </div>
+                            <div class="hero-media">
+                                <picture class="hero-media__img">
+                                    <!-- Ulan: Changing image size... This didn't work. -->
+                                    <source srcset="img/hero-1.2.png" media="(min-width: 992px)">
+                                    <!--
+                                    <source srcset="img/hero-1.2.png" media="(min-width: 30px)">
+                                    -->
+                                    <img src="img/hero--smaller1.2.png" alt="hero-mobile">
+                                </picture>
+                            </div>
+                            <!-- media content end -->
+                        </div>
+                    </div>
+                </div>
+                <!-- row end -->
+            </div> <!-- End of "<div class="container">" -->
+            <span class="hero__wave">
+                <img class="svg hero__wave--svg" src="assets/dist/layout/hero-wave-1.svg" alt="hero-wave">
+            </span>
+        </section>
+        <!-- =========== Hero End ============ -->
+
+        <!-- =========== How It Works Start ============ -->
+        <section class="features-two" id="how_it_works">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-title">
+                            <h2>How It Works </h2>
+                            <h4>When you request an on-site service,
+                              <br>follow three easy steps.</h4>
+                        </div>
+                    </div>
+                    <!-- section title end -->
+                </div>
+
+                <!-- section title row end -->
+                <div class="row">
+                    <div class="col-12 col-md-11 offset-md-1">
+                        <div class="feature-wrapper">
+                            <ul class="feature">
+                                <li class="feature__list">
+                                    <span class="feature__icon"></span>
+                                    <div>
+                                        <h5 class="feature__title">Step 1: Requesting Service </h5>
+                                        <p class="feature__description">
+                                        <ul style="list-style-type:disc">
+                                          <li>
+                                            Book your appointment and select your device.<br><br>
+                                          </li>
+                                          <li>
+                                            Check the type of repair needed and your appointment time. <br><br>
+                                          </li>
+                                          <li>
+                                            We ask for address where to send our technician.
+                                            It can be your office building, as long as we find you.<br><br>
+                                          </li>
+                                        </ul>
+                                        </p>
+                                    </div>
+                                </li>
+                                <!-- single item end -->
+                                <li class="feature__list">
+                                    <span class="feature__icon"></span>
+                                    <div>
+                                        <h5 class="feature__title">Step 2: Service Details </h5>
+                                        <p class="feature__description">
+                                        <ul style="list-style-type:disc">
+                                          <li>
+                                            Once you confirm your order we will send you a text message with appointment details.<br><br>
+                                          </li>
+                                          <li>
+                                            On the day of your appointment we will contact you for final confirmation.<br><br>
+                                          </li>
+                                          <li>
+                                            You can E-mail or call us with further questions.
+                                          </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <!-- single item end -->
+                                <li class="feature__list">
+                                    <span class="feature__icon"></span>
+                                    <div>
+                                        <h5 class="feature__title">Step 3: Appointment </h5>
+                                        <p class="feature__description">
+                                          <ul style="list-style-type:disc">
+                                          <li>
+                                            Our trained technician will arrive and make the repairs as requested.
+                                            Feel free to ask any questions.<br><br>
+                                          </li>
+                                          <li>
+                                            We will perform diagnostic tests to ensure that the repairs were made properly.<br><br>
+                                          </li>
+                                          <li>
+                                            You pay only if and when the repairs are completed.<br><br>
+                                          </li>
+                                        </p>
+                                    </div>
+                                </li>
+                                <!-- single item end -->
+                            </ul>
+                            <!-- feature content end -->
+                            <div class="feature-media reveal">
+                                <picture class="feature-media__img">
+                                    <source srcset="img/features-2.1.png" media="(min-width: 768px)">
+                                    <img src="img/features--smaller-2.1.png" alt="features--smaller">
+                                </picture>
+                            </div>
+                            <!-- media content end -->
+                        </div>
+                    </div>
+                </div>
+                <!-- row end -->
+            </div>
+        </section>
+        <!-- =========== How It Works End ============ -->
+
+        <!-- =========== Warranty ============ -->
+        <section class="facts-one" id="warranty">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 offset-md-1">
+                <div class="section-title">
+                  <h2>Warranty</h2>
+                </div>
+
+                <div class="facts-wrapper">
+                  <div class="fact reveal">
+                    <h2 class="fact__title">We Care!</h2>
+                      <p class="fact__description">
+                        <ul style="list-style-type:disc">
+                          <li>
+                          Most of our business comes from customer referrals. <br><br>
+                          </li>
+                          <li>
+                          Your satisfaction is very important to us. <br><br>
+                          </li>
+                          <li>
+                          We give warranty on our parts and labor. <br><br>
+                          </li>
+                        </ul>
+                      </p>
+                      <!-- text content end -->
+                  </div>
+
+                  <div class="facts-media">
+                    <span class="facts-media__img">
+                      <img src="img/facts-1.1.png" alt="facts-img" style="max-height: 1%; max-width: 100%">
+                    </span>
+                  </div>
+                  <!-- media content end -->
+                </div> <!-- End of <div class="facts-wrapper"> -->
+              </div> <!-- End of <div class="col-12 col-md-10 offset-md-1"> -->
+            </div> <!-- End of <div class="row"> -->
+          </div> <!-- End of <div class="container"> -->
+        </section> <!-- End of <section class="facts-one" id="warranty"> -->
+        <!-- =========== Warranty End ============ -->
+
+
+        <!-- =========== Video content-1 Start ============ -->
+<!-- Ulan: Leave the code below commented out for time being.
+To be added when the content for these sections is ready.
+        <section class="video-content-one">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="video-content-wrapper">
+                            <img src="images/video-thumb-1.png" alt="media__content" class="media__content">
+                            <a href="img/demo.M4V" class="html5lightbox btn__play" data-width="650" data-height="366" title="">
+                                <i class="btn__play--icon nc-icon nc-triangle-right-17"></i>
+                            </a>
+                        </div>
+-->
+                        <!-- media content end -->
+<!--
+                    </div>
+                </div>
+-->
+                <!-- row end -->
+<!--
+            </div>
+        </section>
+-->
+        <!-- =========== Video content-1 End ============ -->
+
+        <!-- =========== FAQ-1 Start ============ -->
+        <section class="faq-one" id="faq">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-title">
+                            <h2>Frequently Asked Questions</h2>
+                        </div>
+                    </div>
+                    <!-- section title end -->
+                </div>
+                <!-- section title row end -->
+                <div class="row">
+                    <div class="col-10 mx-auto">
+                        <ul class="faq">
+                            <li class="faq-list">
+                                <h5 class="faq-list__title">Is your service covered by a warranty? </h5>
+                                <p class="faq-list-description">
+                                  Yes, we stand by the quality of our parts and labor.
+                                  Please inquire warranty details during your appointment.
+                                </p>
+                            </li>
+                            <!-- single ite end -->
+                            <li class="faq-list">
+                                <h5 class="faq-list__title">Do you use original parts? </h5>
+                                <p class="faq-list-description">
+                                  No, this is considered a third party service.
+                                  We do use high quality parts sourced from the manufacturers.
+                                </p>
+                            </li>
+                            <!-- single ite end -->
+                            <li class="faq-list">
+                                <h5 class="faq-list__title">How long does it take to repair my phone?</h5>
+                                <p class="faq-list-description">
+                                  Most of our repair appointments are done within 20 minutes.
+                                  We achieve such quick turn around by having pre-assembled parts ready.
+                                  That's why we ask service details prior to the appointment.
+                                </p>
+                            </li>
+                            <!-- single ite end -->
+                            <li class="faq-list">
+                                <h5 class="faq-list__title">What if my phone gets damaged during the repair?</h5>
+                                <p class="faq-list-description">
+                                  We do
+                                  We recommend customers to backup their phone on a regular basis as a general practice.
+                                  We do have commercial liability insurance otherwise.
+                                </p>
+                            </li>
+                            <!-- single ite end -->
+                            <li class="faq-list">
+                                <h5 class="faq-list__title">Will I get an order confirmation?</h5>
+                                <p class="faq-list-description">
+                                  Yes, we will send you a text message with order details once you book an appointment.
+                                  We will also contact you on the day of your appointment to confirm details.
+                                </p>
+                            </li>
+                            <!-- single ite end -->
+                            <li class="faq-list">
+                                <h5 class="faq-list__title">Can I change my appointment? </h5>
+                                <p class="faq-list-description">
+                                  Yes, just send us an
+                                  <a href="mailto:support@fixinity.com">E-mail</a>
+                                  or
+                                  <a href="tel:+14159480937">Call us</a>
+                                   to reschedule.
+                                </p>
+                            </li>
+                            <!-- single ite end -->
+                            <li class="faq-list">
+                                <h5 class="faq-list__title">Do you share my personal information?</h5>
+                                <p class="faq-list-description">
+                                  No, we do not. Our business model is based on customer trust and we respect it.
+                                </p>
+                            </li>
+                            <!-- single ite end -->
+                            <li class="faq-list">
+                                <h5 class="faq-list__title">Do you accept credit cards? </h5>
+                                <p class="faq-list-description">
+                                  We accept major credit/debit cards as well as cash.
+                                </p>
+                            </li>
+                            <!-- single ite end -->
+                        </ul>
+                    </div>
+                </div>
+                <!-- row end -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="faq-contact">
+                            <span class="faq-contact__content">
+                              Still have a question? E-mail us:
+                                <a href="mailto:">support@fixinity.com</a>
+                              or call us:
+                                <a href="tel:+14159480937">415.948.0937</a>
+                            </span>
+                        </div>
+                        <!-- faq contact end -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- =========== FAQ-1 End ============ -->
+
+        <!-- =========== Testimonial-1 Start ============ -->
+        <section class="testimonial-one" id="testimonial">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-title light">
+                            <h2>Testimonials</h2>
+                            <p>
+                              <h4><font color=White>We really appreciate your feedback. </font></h4>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- section title end -->
+                </div>
+                <!-- section title row end -->
+                <div class="row">
+                    <div class="col-12 col-lg-7 mx-auto">
+                        <div class="testimonial reveal">
+                            <div class="testimonial-item">
+                                <div class="testimonial-content">
+                                    <span class="testimonial__avatar">
+                                        <!-- <img src="images/testimonial-1.png" alt=""> -->
+                                        <img src="img/testimonial-3.png" alt="">
+                                    </span>
+                                    <div>
+                                        <blockquote class="testimonial__quote">
+                                          I had a battery problem on my iPhone 5S.
+                                          Got my phone fixed in no time. Quick response. Easy to deal with. Definitely recommend them.
+                                        </blockquote>
+                                        <span class="testimonial__customer-rating">
+                                            <i class="nc-icon nc-favourite-31"></i>
+                                            <i class="nc-icon nc-favourite-31"></i>
+                                            <i class="nc-icon nc-favourite-31"></i>
+                                            <i class="nc-icon nc-favourite-31"></i>
+                                            <i class="nc-icon nc-favourite-31"></i>
+                                        </span>
+                                        <h5 class="testimonial__customer-name">U V.</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single item end -->
+                            <div class="testimonial-item">
+                                <div class="testimonial-content">
+                                    <span class="testimonial__avatar">
+                                        <img src="images/testimonial-2.png" alt="">
+                                    </span>
+                                    <div>
+                                        <blockquote class="testimonial__quote">
+                                          Aza took only 15 minutes to replace my Iphone 7 cracked screen, I didn't even complete my lunch :)
+                                          Excellent job,
+                                          Thank You soooo much!!
+                                        </blockquote>
+                                        <span class="testimonial__customer-rating">
+                                            <i class="nc-icon nc-favourite-31"></i>
+                                            <i class="nc-icon nc-favourite-31"></i>
+                                            <i class="nc-icon nc-favourite-31"></i>
+                                            <i class="nc-icon nc-favourite-31"></i>
+                                            <i class="nc-icon nc-favourite-31"></i>
+                                        </span>
+                                        <h5 class="testimonial__customer-name">Serj Z.</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single item end -->
+                            <div class="testimonial-item">
+                                <div class="testimonial-content">
+                                    <span class="testimonial__avatar">
+                                        <img src="img/testimonial-3.png" alt="">
+                                    </span>
+                                    <div>
+                                        <blockquote class="testimonial__quote">
+                                          After the repair my phone looks brand new again!
+                                          Thanks Fixinity! Amazing job! :)
+                                          And great customer service, they were very friendly and helpful with my questions.                                        </blockquote>
+                                        <span class="testimonial__customer-rating">
+                                            <i class="nc-icon nc-favourite-31"></i>
+                                            <i class="nc-icon nc-favourite-31"></i>
+                                            <i class="nc-icon nc-favourite-31"></i>
+                                            <i class="nc-icon nc-favourite-31"></i>
+                                            <i class="nc-icon nc-favourite-31"></i>
+                                        </span>
+                                        <h5 class="testimonial__customer-name">Jo L.</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- single item end -->
+<!-- Ulan: Commenting out testimonial templates.
+                            <div class="testimonial-item">
+                                <div class="testimonial-content">
+                                    <span class="testimonial__avatar">
+                                        <img src="img/testimonial-4.png" alt="">
+                                    </span>
+                                    <div>
+                                        <blockquote class="testimonial__quote">
+                                          FB_REVIEW
+                                        </blockquote>
+                                        <span class="testimonial__customer-rating">
+                                            <i class="nc-icon nc-favourite-31"></i>
+                                            <i class="nc-icon nc-favourite-31"></i>
+                                            <i class="nc-icon nc-favourite-31"></i>
+                                            <i class="nc-icon nc-favourite-31"></i>
+                                            <i class="nc-icon nc-favourite-31"></i>
+                                        </span>
+                                        <h5 class="testimonial__customer-name">FB CUSTOMER</h5>
+                                    </div>
+                                </div>
+                            </div>
+-->
+                            <!-- single item end -->
+
+                        </div>
+                    </div>
+                </div>
+                <!-- testimonial row end -->
+            </div>
+        </section>
+        <!-- =========== Testimonial-1 End ============ -->
+
+        <!-- =========== newsletter-1 Start ============ -->
+<!-- Ulan: Commenting out newsletter object
+        <section class="newsletter-one">
+            <img src="img/map.png" alt="media__content" class="media__content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="newsletter-wrapper">
+                            <div class="newsletter-media reveal">
+                                <picture class="newsletter-media__img">
+                                    <source srcset="img/book.png" media="(min-width: 768px)">
+                                    <img src="img/book--smaller.png" alt="book">
+                                </picture>
+                            </div>
+-->
+                            <!-- media content end -->
+<!-- Ulan: Commenting out newsletter object
+                            <div class="newsletter-optin reveal">
+                                <h2 class="newsletter-optin__title">Download our free guide to manage your daily works.</h2>
+                                <p class="newsletter-optin__description">A complete guide to manage daily routines.</p>
+
+                                <form class="form newsletter-optin__form" action="#">
+
+                                    <div class="form__field form__field--group">
+                                        <input class="form-control" type="text" name="email" value="" placeholder="Enter your email address" required="">
+                                        <button type="submit" class="btn__submit">
+                                            <i class="btn__submit--icon nc-icon nc-send"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+-->
+                            <!-- content end -->
+<!-- Ulan: Commenting out newsletter object
+                        </div>
+                    </div>
+                </div>
+-->
+                <!-- row end -->
+<!-- Ulan: Commenting out newsletter object
+            </div>
+        </section>
+-->
+        <!-- =========== newsletter-1 End ============ -->
+
+        <!-- =========== cta-1 start ============ -->
+<!-- Ulan: Commenting out CTA section
+        <section class="cta-one">
+            <img src="img/shape-1.svg" alt="" class="media__content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-11 offset-lg-1">
+                        <div class="cta-wrapper reveal">
+                            <div class="cta-content">
+                                <h2 class="cta__title">Try vApp for free!</h2>
+                                <p class="cta__description">Big, small, online, offline, local or international. Size doesn't matter. We work on diverse projects for top brands as well as for cool startups. Check out some of our favorites.</p>
+-->
+                                <!-- title end -->
+<!-- Ulan: Commenting out CTA section
+                                <div class="cta__buttons">
+                                    <a href="#" class="db-btn db-btn__type-sm db-btn__outline">
+                                        <i class="db-btn__icon nc-icon nc-apple"></i> App store
+                                    </a>
+                                    <a href="#" class="db-btn db-btn__type-sm db-btn__outline">
+                                        <i class="db-btn__icon nc-icon nc-ic_android_48px"></i>Play store
+                                    </a>
+                                </div>
+                            </div>
+-->
+                            <!-- content end -->
+<!-- Ulan: Commenting out CTA section
+                            <div class="cta-media">
+                                <picture class="cta-media__img">
+                                    <source srcset="img/cta-img-1.png" media="(min-width: 1200px)">
+                                    <source srcset="img/cta-img--mid-1.png" media="(min-width: 992px)">
+                                    <img src="img/cta-img--smaller-1.png" alt="cta-mobile" />
+                                </picture>
+                            </div>
+-->
+                            <!-- media content end -->
+<!-- Ulan: Commenting out CTA section
+                        </div>
+                    </div>
+                </div>
+-->
+                <!-- row end -->
+<!-- Ulan: Commenting out CTA section
+            </div>
+        </section>
+-->
+        <!-- =========== cta-1 End ============ -->
+
+        <!-- =========== footer-1 End ============ -->
+<!-- Ulan: Commenting out Footer section
+        <footer class="footer-one">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="footer">
+                            <div class="brand-logo">
+                                <a href="#">
+                                    <img src="img/brand-logo-color.png" alt="brand logo">
+                                </a>
+                            </div>
+                            <p class="footer__caption">Sitting proudly atop M3565 is the two-storey penthouse. The master bedroom suite is phenomenally spacious and opens out to a breathtaking plunge pool.
+                            </p>
+                            <nav class="footer-widget">
+                                <ul>
+                                    <li>
+                                        <a href="#">Affiliate program</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Terms & Conditions</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Privacy Policy</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Refund Policy</a>
+                                    </li>
+                                </ul>
+                            </nav>
+-->
+                            <!-- widget end -->
+<!-- Ulan: Commenting out Footer section
+                            <div class="footer-copyright">
+                                <span class="footer-copyright__text">© 2018 vApp, Design with
+                                    <i class="fa fa-heart"></i> by
+                                    <a href="#">Team Dhrubok</a>
+                                </span>
+                            </div>
+-->
+                            <!-- copyright content end -->
+<!-- Ulan: Commenting out Footer section
+                        </div>
+                    </div>
+                </div>
+-->
+                <!-- row end -->
+<!-- Ulan: Commenting out Footer section
+            </div>
+        </footer>
+-->
+        <!-- =========== footer-1 End ============ -->
+    </div> <!-- End of <div class="main-wrapper home-1"> -->
+
+    <!-- Main JS Files -->
+    <script src="assets/dist/js/vendors.min.js"></script>
+    <script src="assets/dist/js/app.min.js"></script>
+
+</body>
+</html>
