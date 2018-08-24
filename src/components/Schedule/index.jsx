@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import Month from '../Common/Calendar/month';
 import Time from '../Common/Calendar/time';
@@ -13,6 +14,7 @@ class Schedule extends Component {
 
   constructor(props) {
     super(props);
+    this.refProceed = React.createRef();
     this.state = {
       showErrors: false,
       info: {
@@ -25,7 +27,12 @@ class Schedule extends Component {
 
   handleChangeMonth = date => this.setState({ info: {...this.state.info, date: date.format(dateFormat), time: ''} });
 
-  handleChangeTime = time => this.setState({ info: {...this.state.info, time }});
+  handleChangeTime = (time) => {
+    this.setState({ info: {...this.state.info, time }});
+    ReactDOM.
+      findDOMNode(this.refProceed.current).
+      scrollIntoView();
+  }
 
   onChange = e => {
     const element = e.target.getAttribute("fixtype");
@@ -79,10 +86,10 @@ class Schedule extends Component {
               <Month onChange={this.handleChangeMonth} />
             </div>
             <div className={timeClass}>
-              <h3>2. Pick a Time</h3>
+              <h3 ref={this.refProceed}>2. Pick a Time</h3>
               <Time onChange={this.handleChangeTime} selectedDate={this.state.info.date} selectedTime={this.state.info.time}/>
             </div>
-            <div className="schedule-content address">
+            <div className="schedule-content address" >
               <h3>Tell us where to send a technician:</h3>
               <input fixtype="address" required className="contact-input required" placeholder="Enter Your Location" onChange={this.onChange}/>
               <input fixtype="suite" className="contact-input" placeholder="Add / suite (optional)" onChange={this.onChange}/>

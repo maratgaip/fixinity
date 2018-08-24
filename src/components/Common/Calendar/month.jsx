@@ -1,5 +1,6 @@
 import moment from 'moment';
 import React, { Component } from 'react';
+import ReactGA from 'react-ga';
 import cx from 'classnames';
 import range from 'lodash/range';
 import chunk from 'lodash/chunk';
@@ -27,6 +28,11 @@ export default class Calendar extends Component {
     m.date(i);
     this.setState({selected: m})
     this.props.onChange(m);
+    ReactGA.event({
+      category: 'Booking',
+      action: 'Select Date',
+      label: m.format()
+    })
   };
 
   getWeeks = () => {

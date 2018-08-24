@@ -1,5 +1,6 @@
 import moment from 'moment';
 import React, { Component } from 'react';
+import ReactGA from 'react-ga';
 import cx from 'classnames';
 
 const Time = ({ i, selectedTime, selectedDate, ...props }) => {
@@ -50,6 +51,11 @@ export default class Calendar extends Component {
       return;
     }
     this.props.onChange(time);
+    ReactGA.event({
+      category: 'Booking',
+      action: 'Select Time',
+      label: time
+    })
   };
 
   render() {
