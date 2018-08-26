@@ -6,6 +6,7 @@ import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
 import { routerMiddleware } from 'react-router-redux';
 import { applyMiddleware, createStore } from 'redux';
+import HttpsRedirect from 'react-https-redirect';
 
 import App from './App';
 import Saga from './redux/saga';
@@ -30,7 +31,9 @@ sagaMiddleware.run(Saga);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App history={history} />
+    <HttpsRedirect>
+      <App history={history} />
+    </HttpsRedirect>
   </Provider>,
   document.getElementById('root')
 );
