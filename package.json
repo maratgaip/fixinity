@@ -11,6 +11,7 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-ga": "^2.5.3",
+    "react-https-redirect": "^1.0.10",
     "react-iframe": "^1.2.0",
     "react-redux": "^5.1.0-test.1",
     "react-router-dom": "^4.3.1",
