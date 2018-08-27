@@ -52,8 +52,10 @@ export default class Calendar extends Component {
     const todayDate = today.date();
     const lastDayOfCurrentMonth = today.clone().endOf('month').date();
     // How many days we want to show
-    const daysToShow = 7;
-
+    var daysToShow = 7;
+    if (todayDate + daysToShow >= lastDayOfCurrentMonth) {
+      daysToShow = lastDayOfCurrentMonth - todayDate - 1;
+    }
     let days = [];
     if ((todayDate + daysToShow) < lastDayOfCurrentMonth) {
       days = [].concat(
