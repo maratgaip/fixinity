@@ -1,20 +1,22 @@
 import moment from 'moment';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import ReactGA from 'react-ga';
 import cx from 'classnames';
 import range from 'lodash/range';
 import chunk from 'lodash/chunk';
 
-const Day = ({ i, d, selectedDay, ...props }) => {
+const Day = ({ i, d, selectedDay, disabled, ...props }) => {
   const select = selectedDay && selectedDay.date();
   const cls = cx({
     'current-day': i === d,
     'selected': i === select,
+    'disabled': disabled,
   });
   return <td className={cls} {...props}>{i}</td>;
 };
 
-export default class Calendar extends Component {
+class Calendar extends Component {
 
   constructor(props){
     super(props);
@@ -68,6 +70,8 @@ export default class Calendar extends Component {
     const days = this.getDays();
     const today = moment().utc().local();
 
+    const { notAvailableWeekDays } = this.props;
+
     return (
       <div className={cx('m-calendar')}>
         <table>
@@ -80,15 +84,24 @@ export default class Calendar extends Component {
           <tbody>
           {chunk(days, 7).map((row, w) =>
             <tr key={w}>
-              {row.map(i =>
-                <Day
-                  key={i}
-                  i={i}
-                  d={today}
-                  selectedDay={this.state.selected}
-                  w={w}
-                  onClick={() => this.selectDate(i, w)}
-                />
+              {row.map((i,indexWeek) => {
+                const disabledDay = notAvailableWeekDays.includes(weeks[indexWeek]);
+                return (
+                  <Day
+                    key={i}
+                    i={i}
+                    d={today}
+                    disabled={disabledDay}
+                    selectedDay={this.state.selected}
+                    w={w}
+                    onClick={() => {
+                      if (!disabledDay) {
+                        this.selectDate(i, w)
+                      }
+                    }}
+                  />
+                )
+              }
               )}
             </tr>
           )}
@@ -98,3 +111,9 @@ export default class Calendar extends Component {
     );
   }
 }
+
+// Getting Router from Redux
+const mapStateToProps = state => ({notAvailableWeekDays: state.root.notAvailableWeekDays});
+
+// Connecting Redux to the component
+export default connect(mapStateToProps)(Calendar);

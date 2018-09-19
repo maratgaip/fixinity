@@ -34,7 +34,7 @@ class Issue extends Component {
       }
     });
     return (
-      <Steps price={price} onClick={this.onClick} list={newData} title={title} />
+      <Steps price={price} onClick={this.onClick} list={newData} title={title} {...this.props} />
     );
   }
 }

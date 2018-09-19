@@ -12,7 +12,7 @@ class Device extends Component {
     const { title, model } = this.props[device];
 
     return (
-      <Steps list={model} title={title} />
+      <Steps list={model} title={title} {...this.props} />
     );
   }
 }

@@ -13,7 +13,7 @@ class Model extends Component {
     const { color } = this.props[device];
 
     return (
-      <Steps list={color[model]} title={color.title} />
+      <Steps list={color[model]} title={color.title} {...this.props} />
     );
   }
 }

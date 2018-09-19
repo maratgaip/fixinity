@@ -210,7 +210,7 @@
           background-color: #1385e5;
           color: white; }
       .m-time .time .hours.disabled {
-        color: #dfe0e4;
+        color: #ccc;
         cursor: default; }
 
 .schedule-content {

@@ -1876,7 +1876,7 @@ section[class^=hero-] {
 
 .content-left .hero-content {
   max-width: 35.625rem;
-  padding-top: 10.3125rem;
+  padding-top: 1rem;
   padding-bottom: 5.3125rem;
 }
 
@@ -4006,7 +4006,7 @@ section[class^=hero-six] {
             animation: bounce 1.2s infinite alternate;
   }
 }
-
+/*
 .features-two .feature-media:before {
   position: absolute;
   top: calc(50% - 70px);
@@ -4028,7 +4028,7 @@ section[class^=hero-six] {
     width: 180px;
     right: auto;
   }
-}
+}*/
 
 /*========================= Features-3 =========================*/
 .features-three {

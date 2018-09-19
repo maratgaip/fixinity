@@ -14,11 +14,20 @@ const Time = ({ i, selectedTime, selectedDate, ...props }) => {
 };
 
 const isBookable = (selectedDate, slotTime) => {
+  debugger
   if(selectedDate === '') {
     return false;
   }
   var slotDT = moment(selectedDate + " " + slotTime, "MM/DD/YYYY hh:mmA");
-  if (slotDT.weekday() === 1 || slotDT.weekday() === 2 || slotDT.weekday() === 5) {
+  const eveningHours = [
+    "6:00pm",
+    "7:00pm",
+    "8:00pm",
+    "9:00pm",
+    "10:00pm",
+    "11:00pm",
+  ];
+  if (slotDT.weekday() === 1 && !eveningHours.includes(slotTime)) {
     return false;
   }
   var diff = slotDT.diff(moment());

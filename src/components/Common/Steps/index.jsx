@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Header from '../Header';
+import ProgressBar from '../../ProgressBar';
 import './style.css';
 
 class RepairPhone extends Component {
@@ -40,6 +41,7 @@ class RepairPhone extends Component {
       <Fragment>
         <Header />
         <div className="container">
+          <ProgressBar {...this.props} />
           <div className="steps-title">{title}</div>
           <div className="steps-body">
             { stepsContent }

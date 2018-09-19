@@ -8,3 +8,10 @@ body {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+.disabled {
+  background-color: #dfe0e4;
+}
+.disabled:hover{
+  background-color: #dfe0e4 !important;
+}

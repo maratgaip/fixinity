@@ -27,6 +27,7 @@ const initialState = {
   token: localStorage.getItem('token'),
   error: null,
   sendAppointment: false,
+  notAvailableWeekDays: [],
   zipCodes: [
     94002,
     94003,

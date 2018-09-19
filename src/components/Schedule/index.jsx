@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Month from '../Common/Calendar/month';
 import Time from '../Common/Calendar/time';
 import Header from '../Common/Header';
+import ProgressBar from '../ProgressBar';
 import { actions } from '../../redux/reducer'
 import './style.css';
 import cx from 'classnames';
@@ -72,10 +73,10 @@ class Schedule extends Component {
       'hidden': this.state.info.date === '',
 
     });
-
     return (
       <Fragment>
         <Header />
+        <ProgressBar {...this.props} />
         <div className="container">
           <div className="schedule-title">Let's Schedule Your Repair</div>
           <form className="schedule-body" onSubmit={this.onSubmit}>
