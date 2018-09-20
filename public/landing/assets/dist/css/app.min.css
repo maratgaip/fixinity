@@ -5442,6 +5442,9 @@ left: -30px;
 
 /**! 18. video-section **/
 /*========================= Video Content-one =========================*/
+.video-content-wrapper {
+  text-align: center;
+}
 .video-content-wrapper-video {
   -webkit-box-shadow: 0 32px 44px rgba(0, 0, 0, 0.15);
   box-shadow: 0 32px 44px rgba(0, 0, 0, 0.15);
