@@ -27,9 +27,13 @@ class RepairPhone extends Component {
   }
 
   couponOnChange = ({target: {value}}) => {
-    if (value === 'ulan'){
+    if (value === 'YELP10'){
       this.setState({coupon:10})
-    } else {
+    } else if (value === 'YELP15'){
+      this.setState({coupon:15})
+    } else if (value === 'YELP05'){
+      this.setState({coupon:5})
+    }else {
       this.setState({coupon:0})
     }
   }
