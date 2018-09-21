@@ -30,8 +30,10 @@ function* sendAppointment({info, resolve, reject}) {
     switch (error.status) {
       case 500: message = 'Internal Server Error'; break;
       case 401: message = 'Invalid credentials'; break;
+      case 400: message = 'Some fields are wrong, go back and check again'; break;
       default: message = 'Something went wrong';
     }
+    reject(message)
     yield put({ type: BOOK_APPOINTMENT_FAILED, payload: message });
   }
 }

@@ -14,7 +14,6 @@ const Time = ({ i, selectedTime, selectedDate, ...props }) => {
 };
 
 const isBookable = (selectedDate, slotTime) => {
-  debugger
   if(selectedDate === '') {
     return false;
   }

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import Header from '../Common/Header';
 import successImg from './assets/success.png';
+import loaderImg from './assets/loader.svg';
 import { actions } from '../../redux/reducer'
 import './style.css';
 
@@ -12,8 +13,8 @@ class Booking extends Component {
     super(props)
     this.state = {
       info: props.info,
-      // sendAppointment: props.sendAppointment,
-      sendAppointment: true,
+      sendAppointment: false,
+      error: '',
     }
   }
 
@@ -36,39 +37,68 @@ class Booking extends Component {
   }
 
   onBook = () => {
-    const info = {...this.state.info, price: this.getPrice()};
+    const { device, model, color, issue } = this.props.match.params;
+    const currentDevice = this.props.device.iphone;
+    const issueContent = this.getNameFromId(issue, currentDevice.issue.data);
+    const modelContent = this.getNameFromId(model, currentDevice.model);
+    const colorContent = this.getNameFromId(color, currentDevice.color[model]);
+    const priceContent = currentDevice.price[model].issues[issue];
+
+    const { appliedCoupon } = this.props;
+    let instructions = this.state.info.instructions;
+    if (appliedCoupon){
+      instructions += `$${appliedCoupon} coupon applied`;
+    }
+
+    const info = {
+      ...this.state.info,
+      price: priceContent - appliedCoupon,
+      issue: issueContent,
+      device,
+      model:modelContent,
+      color: colorContent,
+      instructions
+    };
     const { bookAppointment } = this.props;
     new Promise(function(resolve, reject) {
       bookAppointment(info, resolve, reject)
     }).then(() => {
       this.setState({sendAppointment: true});
       localStorage.removeItem('info')
-    }).catch((err) => {
-
+    }).catch((error) => {
+      this.setState({error});
     })
   };
 
   getTime = () => {
     const  { time, date } = this.state.info;
-    const formattedDate = moment(date, 'MMMM Do').format('MMMM Do');
+    const formattedDate = moment(date).format('MMMM DD');
     return `${formattedDate}, ${time}`
   };
 
-  getPrice = () => {
-    const { issue, model, device: deviceType } = this.state.info;
-    const { device } = this.props;
-    const issueId = issue.toLocaleLowerCase().split(' ').join('-'); // do it in redux
-
-    if (device && device[deviceType]) {
-      return device[deviceType].price[model].issues[issueId]
+  getNameFromId = (id, nameObject) => {
+    for (let i = 0; i < nameObject.length; i++) {
+      if (nameObject[i].id === id){
+        return nameObject[i].content
+      }
     }
   };
 
   render() {
-    const { address, color, device, email, instructions, issue, model, name, zipCode, phone } = this.state.info;
+    const { address, email, instructions, name, phone } = this.state.info;
+    const { device, model, color, issue } = this.props.match.params;
+    const { appliedCoupon } = this.props;
+
+    const currentDevice = this.props.device.iphone;
+    const issueContent = this.getNameFromId(issue, currentDevice.issue.data);
+    const modelContent = this.getNameFromId(model, currentDevice.model);
+    const colorContent = this.getNameFromId(color, currentDevice.color[model]);
+    const priceContent = currentDevice.price[model].issues[issue];
+
+
     let bookedContent = (
       <div className="booked-content">
-        <button onClick={this.onBook} className="confirm">Book Now</button>
+        <img src={loaderImg} width={40} height={40}/>
       </div>
     );
 
@@ -83,6 +113,24 @@ class Booking extends Component {
         </div>
       )
     }
+
+    if (this.state.error.length) {
+      bookedContent = (
+        <div className="booked-content">
+          <div className="booked-content-success">
+            <span>Error Occured</span>
+          </div>
+          <div className="booked-content-contact">{this.state.error}</div>
+        </div>
+      )
+    }
+
+    const couponPriceContent = !appliedCoupon ? `${priceContent}` : (
+      <Fragment>
+        <span className="coupon-price-prev">${priceContent}</span> ${priceContent - appliedCoupon}
+      </Fragment>
+    )
+
     const instructionsContent = instructions && !instructions.length ? <div>{instructions}</div> : null;
     return (
       <Fragment>
@@ -95,16 +143,16 @@ class Booking extends Component {
               <div className="booking-item">
                 <div className="booking-title">Device</div>
                 <div className="booking-content">
-                  {`${device} ${model}, ${color}`}
+                  {`${device} ${modelContent}, ${colorContent}`}
                 </div>
               </div>
               <div className="booking-item">
                 <div className="booking-title">Issue</div>
-                <div className="booking-content">{issue}</div>
+                <div className="booking-content">{issueContent}</div>
               </div>
               <div className="booking-item">
                 <div className="booking-title">Cost</div>
-                <div className="booking-content">${this.getPrice()}</div>
+                <div className="booking-content">{couponPriceContent}</div>
               </div>
               <div className="booking-item">
                 <div className="booking-title">Time</div>
@@ -112,13 +160,15 @@ class Booking extends Component {
                 <div className="booking-content">{this.getTime()}</div>
               </div>
               <div className="booking-item">
+                <div className="booking-title">Address</div>
+                <div className="booking-content">{address}</div>
+              </div>
+              <div className="booking-item">
                 <div className="booking-title">Your info</div>
                 <div className="booking-content">
                   <div>{name}</div>
                   <div>{phone}</div>
                   <div>{email}</div>
-                  <div>{address}</div>
-                  <div>{zipCode}</div>
                   { instructionsContent }
                 </div>
               </div>
@@ -134,7 +184,7 @@ class Booking extends Component {
                 <div>
                   <h4>Any questions or concerns?</h4>
                   <div className="contact-info">
-                    <span>415 948 0937</span> or <a href="mail:support@fixinity.com">support@fixinity.com</a>
+                    <span>415 943 3888</span> or <a href="mail:support@fixinity.com">support@fixinity.com</a>
                   </div>
                 </div>
               </ul>
@@ -148,7 +198,7 @@ class Booking extends Component {
   }
 }
 
-const mapStateToProps = ({root: {info, device, sendAppointment}}) => ({info, device, sendAppointment});
+const mapStateToProps = ({root: {info, device, sendAppointment, appliedCoupon}}) => ({info, appliedCoupon, device, sendAppointment});
 const mapDispatchToProps = (dispatch) => ({
   bookAppointment: (payload, resolve, reject) => dispatch(actions.bookAppointment(payload, resolve, reject)),
   saveToStorage: (info) => dispatch(actions.saveToStorage(info))

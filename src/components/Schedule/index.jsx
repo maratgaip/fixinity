@@ -50,7 +50,7 @@ class Schedule extends Component {
       const payload = { ...this.props.info, ...info}
       this.props.confirmDetail(payload);
       this.props.saveToStorage(payload);
-      this.props.history.push('/booking');
+      this.props.history.push('schedule/booking');
     }
     return false;
   };

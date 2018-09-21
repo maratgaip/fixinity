@@ -47,4 +47,31 @@
   right: 0px;
   border-bottom-right-radius: 30px;
   border-top-right-radius: 30px;
+  &.with-coupon {
+    padding-top: 26px;
+    padding-bottom: 10px;
+  }
+}
+
+.price-label-prev {
+  font-size: 14px;
+  color: white;
+  position: absolute;
+  right: 0;
+  text-decoration: line-through;
+  top: 5px;
+  left: 0;
+  height: 2px;
+}
+
+.coupon-content {
+  text-align: center;
+  margin-top: 20px;
+
+  input {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 10px;
+    box-shadow: none;
+  }
 }

@@ -16,15 +16,21 @@
       display: inline-block;
       font-weight: bold;
       font-size: 18px; }
+      .booking-device .booking-item .booking-content .coupon-price-prev {
+        font-size: 14px;
+        margin-right: 10px;
+        text-decoration: line-through; }
 
 .booking-helper {
   display: inline-block;
   width: 40%;
   padding-left: 30px; }
-  .booking-helper .what-next li {
-    list-style: none;
-    font-size: 16px;
-    margin: 20px 0; }
+  .booking-helper .what-next {
+    margin-bottom: 150px; }
+    .booking-helper .what-next li {
+      list-style: none;
+      font-size: 16px;
+      margin: 20px 0; }
   .booking-helper .contact-info span {
     font-weight: bold; }
 
@@ -55,4 +61,5 @@
       padding: 0; }
     .booking-body .what-next {
       margin: 0;
-      padding: 0; } }
+      padding: 0;
+      margin-bottom: 150px; } }

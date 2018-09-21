@@ -8,15 +8,36 @@ import './style.css';
 
 class RepairPhone extends Component {
 
+  constructor(){
+    super();
+    this.state = {
+      coupon: 0,
+    }
+  }
+
   onClick = (payload) => {
-    if (this.props.onClick){
-      this.props.onClick(payload)
+    const { onClick, applyCoupon } = this.props;
+    const { coupon } = this.state;
+    if (onClick){
+      onClick(payload)
+    }
+    if (coupon){
+      applyCoupon(coupon)
+    }
+  }
+
+  couponOnChange = ({target: {value}}) => {
+    if (value === 'ulan'){
+      this.setState({coupon:10})
+    } else {
+      this.setState({coupon:0})
     }
   }
 
   render() {
 
     const { list, title, pathname } = this.props;
+    let couponContent = null;
 
     // Creating repeated content based on passed data
     const stepsContent = list.map(({ content, url, id, price }) =>  {
@@ -28,8 +49,29 @@ class RepairPhone extends Component {
       if (price) {
         priceContent = (
           <div className="price-label">${price}</div>
-        )
+        );
+
+        const { coupon } = this.state;
+
+        if (coupon) {
+          priceContent = (
+            <Fragment>
+              <div className="price-label with-coupon">
+                <div className="price-label-prev">${price}</div>
+                ${price - coupon}
+                </div>
+            </Fragment>
+          );
+        }
+
         stepClass = "box price-box"
+
+        couponContent = (
+          <div className="coupon-content">
+            <input onChange={this.couponOnChange} placeholder="Enter the coupon code"/>
+          </div>
+        )
+
       }
       return <Link to={link} key={id} onClick={() => this.onClick(content)} className={stepClass}>
         { priceContent }
@@ -43,6 +85,7 @@ class RepairPhone extends Component {
         <div className="container">
           <ProgressBar {...this.props} />
           <div className="steps-title">{title}</div>
+          {couponContent}
           <div className="steps-body">
             { stepsContent }
           </div>

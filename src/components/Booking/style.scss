@@ -17,6 +17,12 @@
       display: inline-block;
       font-weight: bold;
       font-size: 18px;
+
+      .coupon-price-prev {
+        font-size: 14px;
+        margin-right: 10px;
+        text-decoration: line-through;
+      }
     }
   }
 }
@@ -26,6 +32,7 @@
   width: 40%;
   padding-left: 30px;
   .what-next {
+    margin-bottom: 150px;
     li {
       list-style: none;
       font-size: 16px;
@@ -72,6 +79,7 @@
     .what-next {
       margin: 0;
       padding: 0;
+      margin-bottom: 150px;
     }
   }
 }

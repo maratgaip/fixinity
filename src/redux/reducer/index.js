@@ -9,9 +9,10 @@ export const types = {
   UPDATE_ISSUE: 'UPDATE_ISSUE',
   SAVE_STORAGE: 'SAVE_STORAGE',
   SAVE_STORAGE_SUCCESS: 'SAVE_STORAGE_SUCCESS',
+  APPLY_COUPON: 'APPLY_COUPON',
 }
 
-const { BOOK_APPOINTMENT, UPDATE_ISSUE, CONFIRM_DETAIL, SAVE_STORAGE, BOOK_APPOINTMENT_SUCCESS } = types;
+const { BOOK_APPOINTMENT, UPDATE_ISSUE, CONFIRM_DETAIL, SAVE_STORAGE, BOOK_APPOINTMENT_SUCCESS, APPLY_COUPON } = types;
 
 const colors = {
   "gold": { content: "Gold", url: "gold", id: "gold" },
@@ -26,6 +27,7 @@ const colors = {
 const initialState = {
   token: localStorage.getItem('token'),
   error: null,
+  appliedCoupon: 0,
   sendAppointment: false,
   notAvailableWeekDays: [],
   zipCodes: [
@@ -85,6 +87,10 @@ const initialState = {
     94409,
   ],
   device: {
+    coupon: {
+      'ulan': 10,
+      'ulanulan': 15,
+    },
     iphone: {
       title: "Select iPhone Model",
       model:[
@@ -102,20 +108,20 @@ const initialState = {
       issue:{
         title: "Select Issue Type",
         data: [
-          { content: "Screen Repair", url: "zip-code", id: "screen-repair" },
-          { content: "Battery", url: "zip-code", id: "battery" },
-          { content: "Back Camera", url: "zip-code", id: "back-camera" },
-          { content: "Front Camera", url: "zip-code", id: "front-camera" },
-          { content: "Home Button", url: "zip-code", id: "home-button" },
-          { content: "Charging Port", url: "zip-code", id: "charging-port" },
-          { content: "WiFi/Bluetooth", url: "zip-code", id: "wifi-bluetooth" },
-          { content: "Side Buttons", url: "zip-code", id: "side-buttons" },
-          { content: "Internal Speakers", url: "zip-code", id: "internal-speakers" },
-          { content: "Power Button", url: "zip-code", id: "power-button" },
-          { content: "Headphone Plug", url: "zip-code", id: "headphone-plug" },
-          { content: "Loud Speaker", url: "zip-code", id: "loud-speaker" },
-          // { content: "Water Damage", url: "zip-code", id: "water-damage" },
-          // { content: "Won't Turn On", url: "zip-code", id: "no-turn" },
+          { content: "Screen Repair", url: "screen-repair/schedule", id: "screen-repair" },
+          { content: "Battery", url: "battery/schedule", id: "battery" },
+          { content: "Back Camera", url: "back-camera/schedule", id: "back-camera" },
+          { content: "Front Camera", url: "front-camera/schedule", id: "front-camera" },
+          { content: "Home Button", url: "home-button/schedule", id: "home-button" },
+          { content: "Charging Port", url: "charging-port/schedule", id: "charging-port" },
+          { content: "WiFi/Bluetooth", url: "wifi-bluetooth/schedule", id: "wifi-bluetooth" },
+          { content: "Side Buttons", url: "side-buttons/schedule", id: "side-buttons" },
+          { content: "Internal Speakers", url: "internal-speakers/schedule", id: "internal-speakers" },
+          { content: "Power Button", url: "power-button/schedule", id: "power-button" },
+          { content: "Headphone Plug", url: "headphone-plug/schedule", id: "headphone-plug" },
+          { content: "Loud Speaker", url: "loud-speaker/schedule", id: "loud-speaker" },
+          // { content: "Water Damage", url: "schedule", id: "water-damage" },
+          // { content: "Won't Turn On", url: "schedule", id: "no-turn" },
         ]
       },
       color: {
@@ -276,8 +282,8 @@ const initialState = {
     price: 0,
     color: "",
     phone: "",
-    zipCode: '',
-    city: 'FakeSanJose',
+    zipCode: '10000',
+    city: '  ',
     state: 'CA',
     instructions:""
   },
@@ -311,6 +317,12 @@ const rootReducer = (state = initialState, payload) => {
         info: {...state.info, issue: info},
       };
     }
+    case APPLY_COUPON: {
+      return {
+        ...state,
+        appliedCoupon: payload.coupon,
+      };
+    }
     case SAVE_STORAGE: {
       return {
         ...state,
@@ -332,6 +344,7 @@ const reducer = combineReducers({
 export const actions = {
   confirmDetail: info => ({type: CONFIRM_DETAIL, info}),
   updateIssue: info => ({type: UPDATE_ISSUE, info}),
+  applyCoupon: coupon => ({type: APPLY_COUPON, coupon}),
   bookAppointment: (info, resolve, reject) => ({type: BOOK_APPOINTMENT, info, resolve, reject}),
   saveToStorage: info => ({type: SAVE_STORAGE, info}),
 };

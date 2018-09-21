@@ -34,7 +34,7 @@ class Issue extends Component {
       }
     });
     return (
-      <Steps price={price} onClick={this.onClick} list={newData} title={title} {...this.props} />
+      <Steps applyCoupon={this.applyCoupon} price={price} onClick={this.onClick} list={newData} title={title} {...this.props} />
     );
   }
 }
@@ -42,7 +42,8 @@ class Issue extends Component {
 const mapStateToProps = state => state.root.device;
 
 const mapDispatchToProps = (dispatch) => ({
-  updateIssue: (zipCode) => dispatch(actions.updateIssue(zipCode))
+  updateIssue: (zipCode) => dispatch(actions.updateIssue(zipCode)),
+  applyCoupon: coupon => dispatch(actions.applyCoupon(coupon))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Issue);
