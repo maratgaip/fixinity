@@ -50,21 +50,20 @@ class Calendar extends Component {
 
   getDays = () => {
     const today = moment().utc().local();
-
     const todayDate = today.date();
     const lastDayOfCurrentMonth = today.clone().endOf('month').date();
     // How many days we want to show
-    var daysToShow = 7;
-    if (todayDate + daysToShow >= lastDayOfCurrentMonth) {
+    const daysToShow = 7;
+    /*if (todayDate + daysToShow >= lastDayOfCurrentMonth) {
       daysToShow = lastDayOfCurrentMonth - todayDate - 1;
-    }
+    }*/
     let days = [];
-    if ((todayDate + daysToShow) < lastDayOfCurrentMonth) {
+    //if ((todayDate + daysToShow) < lastDayOfCurrentMonth) {
       days = [].concat(
         range(todayDate, todayDate + daysToShow),
       );
-    }
-    return days
+    //}
+    return days.map(day => day > lastDayOfCurrentMonth ? day % lastDayOfCurrentMonth : day)
   };
 
   render() {
