@@ -28,7 +28,6 @@ const App = props => {
         <Route path="/repair/:device" component={withTracker(Device)} />
         <Route path="/repair" component={withTracker(RepairPhone)} />
         <Route path="/no-support" component={withTracker(NoSupport)} />
-        <Route path="/" component={withTracker(Landing)} />
       </Switch>
     </ConnectedRouter>
   );

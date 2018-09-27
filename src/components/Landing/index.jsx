@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom'
-import Iframe from 'react-iframe'
+// import Iframe from 'react-iframe'
 
 // import logo from './assets/logo3.png';
 import './style.css';
 
 class Landing extends Component {
   render() {
-    return (
-      <Iframe url="/landing/index.html"
-              width="100%"
-              height="100vh"
-              allowFullScreen/>
-    );
+    return <div>Laaam</div>
   }
 }
 
