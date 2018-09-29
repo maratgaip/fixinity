@@ -11,11 +11,11 @@ app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:htt
 app.use(express.static(path.resolve(__dirname, '..', 'build/landing')));
 app.use(express.static(path.resolve(__dirname, '..', 'build/blog')));
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
-
+/*
 // Always return the main index.html, so react-router render the route in the client
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'build/landing', 'index.html'));
-});
+});*/
 
 // Always return the main index.html, so react-router render the route in the client
 app.get('/blog', (req, res) => {
@@ -23,8 +23,16 @@ app.get('/blog', (req, res) => {
 });
 
 // Always return the main index.html, so react-router render the route in the client
-app.get('/repair/iphone', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+
+const handler = (req, res) => res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+
+const routes = ["/repair/*"];
+
+routes.forEach( route => app.get(route, handler) );
+
+// Always return the main index.html, so react-router render the route in the client
+app.get('/landing', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'build/landing', 'index.html'));
 });
 
 module.exports = app;
