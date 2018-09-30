@@ -17,7 +17,7 @@ const isBookable = (selectedDate, slotTime) => {
   if(selectedDate === '') {
     return false;
   }
-  var slotDT = moment(selectedDate + " " + slotTime, "MM/DD/YYYY hh:mmA");
+  var slotDT = moment(selectedDate + " " + slotTime, "MM/DD/YYYY hh:mmA"); // Sat Sep 01 2018 23:00:00 GMT-0700
   const eveningHours = [
     "6:00pm",
     "7:00pm",
@@ -26,12 +26,18 @@ const isBookable = (selectedDate, slotTime) => {
     "10:00pm",
     "11:00pm",
   ];
-  if (slotDT.weekday() === 1 && !eveningHours.includes(slotTime)) {
+
+  const ifMonday = moment(slotDT).format('dddd') === 'Monday';
+  if (ifMonday && !eveningHours.includes(slotTime)) {
     return false;
   }
   var diff = slotDT.diff(moment());
   var minFromNowToTimeSlot = moment.duration(diff).asMinutes();
-  return minFromNowToTimeSlot > 150; // only bookable if time is > 2.5 hours in the future
+
+
+  const ifToday =moment().isSame(moment(selectedDate), 'd');
+
+  return ifToday ? minFromNowToTimeSlot > 150 : true; // only bookable if time is > 2.5 hours in the future
 };
 
 const times = [

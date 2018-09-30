@@ -25,9 +25,12 @@ class Calendar extends Component {
     }
   }
 
-  selectDate = (i) => {
-    const m = moment().utc().local();
+  selectDate = (i,firstWeekDay) => {
+    let m = moment().utc().local();
     m.date(i);
+    if (i < firstWeekDay) {
+      m = moment(m).add(1, 'M')
+    }
     this.setState({selected: m})
     this.props.onChange(m);
     ReactGA.event({
@@ -97,7 +100,7 @@ class Calendar extends Component {
                     w={w}
                     onClick={() => {
                       if (!disabledDay) {
-                        this.selectDate(i, w)
+                        this.selectDate(i, days[0])
                       }
                     }}
                   />

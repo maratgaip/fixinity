@@ -34,3 +34,13 @@
 
 
 ``````
+
+
+## Local Deployment
+
+local build change package.json.
+
+```"start": "node server"```
+
+before deployment change back to:
+```"start": "react-scripts start"```
