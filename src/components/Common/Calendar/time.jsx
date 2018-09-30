@@ -19,16 +19,15 @@ const isBookable = (selectedDate, slotTime) => {
   }
   var slotDT = moment(selectedDate + " " + slotTime, "MM/DD/YYYY hh:mmA"); // Sat Sep 01 2018 23:00:00 GMT-0700
   const eveningHours = [
+    "5:00pm",
     "6:00pm",
     "7:00pm",
     "8:00pm",
     "9:00pm",
-    "10:00pm",
-    "11:00pm",
   ];
 
   const ifMonday = moment(slotDT).format('dddd') === 'Monday';
-  if (ifMonday && !eveningHours.includes(slotTime)) {
+  if (ifMonday && eveningHours.includes(slotTime)) {
     return false;
   }
   var diff = slotDT.diff(moment());
