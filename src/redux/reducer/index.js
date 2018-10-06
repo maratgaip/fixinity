@@ -143,13 +143,13 @@ const initialState = {
       price: {
         "8-plus": {
           issues: {
-            "screen-repair": 129,
+            "screen-repair": 85,
             "back-camera": 159,
           },
         },
         "8": {
           issues: {
-            "screen-repair": 119,
+            "screen-repair": 85,
             "back-camera": 159,
             "front-camera": 69,
             "charging-port": 69,
@@ -160,7 +160,7 @@ const initialState = {
         },
         "7-plus": {
           issues: {
-            "screen-repair": 89,
+            "screen-repair": 69,
             "battery": 65,
             "back-camera": 159,
             "front-camera": 65,
@@ -172,7 +172,7 @@ const initialState = {
         },
         "7": {
           issues: {
-            "screen-repair": 99,
+            "screen-repair": 69,
             "battery": 59,
             "back-camera": 89,
             "front-camera": 59,
@@ -187,7 +187,7 @@ const initialState = {
         },
         "6s-plus": {
           issues: {
-            "screen-repair": 80,
+            "screen-repair": 69,
             "battery": 59,
             "back-camera": 89,
             "front-camera": 59,
@@ -201,7 +201,7 @@ const initialState = {
         },
         "6s": {
           issues: {
-            "screen-repair": 75,
+            "screen-repair": 69,
             "battery": 59,
             "back-camera": 65,
             "front-camera": 59,
@@ -229,7 +229,7 @@ const initialState = {
         },
         "6-plus": {
           issues: {
-            "screen-repair": 70,
+            "screen-repair": 69,
             "battery": 59,
             "back-camera": 59,
             "front-camera": 59,
@@ -243,7 +243,7 @@ const initialState = {
         },
         "6": {
           issues: {
-            "screen-repair": 65,
+            "screen-repair": 59,
             "battery": 59,
             "back-camera": 59,
             "front-camera": 59,
