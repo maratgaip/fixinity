@@ -72,7 +72,10 @@ class RepairPhone extends Component {
 
         couponContent = (
           <div className="coupon-content">
-            <input onChange={this.couponOnChange} placeholder="Enter the coupon code"/>
+            <a target="_blank" href="https://www.yelp.com/biz/fixinity-burlingame-3">
+                <img src="/img/yelp_fullcolor.png"/><br/>
+                Check in on Yelp to get a $5 discount!
+            </a>
           </div>
         )
 
@@ -89,10 +92,10 @@ class RepairPhone extends Component {
         <div className="container">
           <ProgressBar {...this.props} />
           <div className="steps-title">{title}</div>
-          {couponContent}
           <div className="steps-body">
             { stepsContent }
           </div>
+          {couponContent}
         </div>
       </Fragment>
     );
