@@ -43,6 +43,7 @@ class Booking extends Component {
     const modelContent = this.getNameFromId(model, currentDevice.model);
     const colorContent = this.getNameFromId(color, currentDevice.color[model]);
     const priceContent = currentDevice.price[model].issues[issue];
+    const deviceContent = device === 'iphone' ? 'iPhone' : '';
 
     const { appliedCoupon } = this.props;
     let instructions = this.state.info.instructions;
@@ -54,7 +55,7 @@ class Booking extends Component {
       ...this.state.info,
       price: priceContent - appliedCoupon,
       issue: issueContent,
-      device,
+      device: deviceContent,
       model:modelContent,
       color: colorContent || ' ',
       instructions
