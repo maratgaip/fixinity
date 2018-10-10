@@ -39,8 +39,11 @@
 ## Local Deployment
 
 local build change package.json.
+```"start": "react-scripts start"```
 
-```"start": "node server"```
 
 before deployment change back to:
-```"start": "react-scripts start"```
+```"start": "node server"```
+
+and build files
+```yarn build```

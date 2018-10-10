@@ -1,11 +1,11 @@
 .content-repair {
   text-align: center;
   margin-top: 10%;
-  .box {
+  .box-device {
     box-sizing: border-box;
     display: inline-block;
-    border: solid 1px;
-    padding: 100px;
+    border: solid 1px #eee;
+    padding: 50px 100px;
     color: black;
     text-decoration: none;
     transition: all .3s;
@@ -17,4 +17,22 @@
       margin-right: 100px;
     }
   }
+
+  @media screen and (max-width: 768px) {
+    .box-device {
+      &:first-of-type {
+        margin-right: 20px;
+      }
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .box-device {
+      font-size: 20px;
+      width: 100%;
+      &:first-of-type {
+        margin-right: 0px;
+      }
+    }
+  }
+
 }

@@ -6,7 +6,7 @@ import Steps from '../Common/Steps';
 import { actions } from '../../redux/reducer';
 
 
-class Issue extends Component {
+class Color extends Component {
 
   onClick = (content) => {
 
@@ -24,7 +24,7 @@ class Issue extends Component {
 
     // Getting title, data based URL param
     const { title, data } = this.props[device].issue;
-    const price = this.props.iphone.price;
+    const price = this.props[device].price;
     const newData = [];
     const pricesForIssues = price[this.props.match.params.model].issues;
     data.forEach(item => {
@@ -46,4 +46,4 @@ const mapDispatchToProps = (dispatch) => ({
   applyCoupon: coupon => dispatch(actions.applyCoupon(coupon))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Issue);
+export default connect(mapStateToProps, mapDispatchToProps)(Color);

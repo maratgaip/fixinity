@@ -38,7 +38,7 @@ class Booking extends Component {
 
   onBook = () => {
     const { device, model, color, issue } = this.props.match.params;
-    const currentDevice = this.props.device.iphone;
+    const currentDevice = this.props.device[device];
     const issueContent = this.getNameFromId(issue, currentDevice.issue.data);
     const modelContent = this.getNameFromId(model, currentDevice.model);
     const colorContent = this.getNameFromId(color, currentDevice.color[model]);
@@ -89,11 +89,12 @@ class Booking extends Component {
     const { device, model, color, issue } = this.props.match.params;
     const { appliedCoupon } = this.props;
 
-    const currentDevice = this.props.device.iphone;
+    const currentDevice = this.props.device[device];
     const issueContent = this.getNameFromId(issue, currentDevice.issue.data);
     const modelContent = this.getNameFromId(model, currentDevice.model);
-    const colorContent = this.getNameFromId(color, currentDevice.color[model]);
+    const colorContent = this.getNameFromId(color, currentDevice.color[model]) || '';
     const priceContent = currentDevice.price[model].issues[issue];
+    const deviceContent = device === 'iphone' ? 'iPhone' : '';
 
 
     let bookedContent = (
@@ -143,7 +144,7 @@ class Booking extends Component {
               <div className="booking-item">
                 <div className="booking-title">Device</div>
                 <div className="booking-content">
-                  {`${device} ${modelContent}, ${colorContent}`}
+                  {`${deviceContent} ${modelContent} ${colorContent}`}
                 </div>
               </div>
               <div className="booking-item">
@@ -152,7 +153,7 @@ class Booking extends Component {
               </div>
               <div className="booking-item">
                 <div className="booking-title">Cost</div>
-                <div className="booking-content">{couponPriceContent}</div>
+                <div className="booking-content">${couponPriceContent}</div>
               </div>
               <div className="booking-item">
                 <div className="booking-title">Time</div>

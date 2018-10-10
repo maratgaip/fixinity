@@ -1,16 +1,25 @@
 .content-repair {
   text-align: center;
   margin-top: 10%; }
-  .content-repair .box {
+  .content-repair .box-device {
     box-sizing: border-box;
     display: inline-block;
-    border: solid 1px;
-    padding: 100px;
+    border: solid 1px #eee;
+    padding: 50px 100px;
     color: black;
     text-decoration: none;
     transition: all .3s;
     font-size: 30px; }
-    .content-repair .box:hover {
+    .content-repair .box-device:hover {
       background-color: #ccc; }
-    .content-repair .box:first-of-type {
+    .content-repair .box-device:first-of-type {
       margin-right: 100px; }
+  @media screen and (max-width: 768px) {
+    .content-repair .box-device:first-of-type {
+      margin-right: 20px; } }
+  @media screen and (max-width: 767px) {
+    .content-repair .box-device {
+      font-size: 20px;
+      width: 100%; }
+      .content-repair .box-device:first-of-type {
+        margin-right: 0px; } }

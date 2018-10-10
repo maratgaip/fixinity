@@ -24,6 +24,8 @@ const colors = {
   "red": { content: "Red", url: "red", id: "red" },
 };
 
+const iPadColors = [{"default": { content: "default", url: "default", id: "default" }}];
+
 const initialState = {
   token: localStorage.getItem('token'),
   error: null,
@@ -270,7 +272,72 @@ const initialState = {
           },
         },
       },
-    }
+    },
+    ipad: {
+      title: "Select iPad Model",
+      model:[
+        { content: "iPad Air 2", url: "air-2/default", id: "air-2" },
+        { content: "iPad Air", url: "air/default", id: "air" },
+        { content: "iPad Mini 4", url: "mini-4/default", id: "mini-4" },
+        { content: "iPad Mini 1, 2, 3", url: "mini-1-2-3/default", id: "mini-1-2-3" },
+        { content: "iPad 2, 3, 4", url: "ipad-2-3-4/default", id: "ipad-2-3-4" },
+        { content: "iPad 5", url: "ipad-5/default", id: "ipad-5" },
+        { content: "iPad 6", url: "ipad-6/default", id: "ipad-6" },
+      ],
+      issue:{
+        title: "Select Issue Type",
+        data: [
+          { content: "Screen Repair", url: "screen-repair/schedule", id: "screen-repair" },
+        ]
+      },
+      color: {
+        title: "Select iPad Color",
+        "air-2": iPadColors,
+        "air": iPadColors,
+        "mini-4": iPadColors,
+        "mini-1-2-3": iPadColors,
+        "ipad-2-3-": iPadColors,
+        "ipad-5": iPadColors,
+        "ipad-6": iPadColors,
+      },
+      price: {
+        "air-2": {
+          issues: {
+            "screen-repair": 325,
+          },
+        },
+        "air": {
+          issues: {
+            "screen-repair": 105,
+          },
+        },
+        "mini-4": {
+          issues: {
+            "screen-repair": 215,
+          },
+        },
+        "mini-1-2-3": {
+          issues: {
+            "screen-repair": 105,
+          },
+        },
+        "ipad-2-3-4": {
+          issues: {
+            "screen-repair": 105,
+          },
+        },
+        "ipad-5": {
+          issues: {
+            "screen-repair": 105,
+          },
+        },
+        "ipad-6": {
+          issues: {
+            "screen-repair": 145,
+          },
+        },
+      },
+    },
   },
   info: {
     address:  "",
