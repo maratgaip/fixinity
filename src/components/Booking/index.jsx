@@ -56,7 +56,7 @@ class Booking extends Component {
       issue: issueContent,
       device,
       model:modelContent,
-      color: colorContent,
+      color: colorContent || ' ',
       instructions
     };
     const { bookAppointment } = this.props;
