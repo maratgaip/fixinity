@@ -30,6 +30,21 @@ const isBookable = (selectedDate, slotTime) => {
   if (ifMonday && eveningHours.includes(slotTime)) {
     return false;
   }
+
+  //moment(moment(), "DD-MM-YYYY").add('days', 1)
+  // console.log('asdadsad', );
+  const nextDay = moment(moment(), "DD/MM/YYYY").add('days', 1).format('MM/DD/YYYY');
+  const currentTime = moment().format('HH');
+  const noBookingMorningHours = ["9:00am", "10:00am", "11:00am", "12:00pm"];
+
+  // if current time is 9pm and customer wants book for the next day then
+  // disable 9am to 12:00pm
+  if (currentTime >= 21 && nextDay === selectedDate && noBookingMorningHours.includes(slotTime)) {
+    return false
+
+  }
+  // if today is after 9pm then disable tomorrows morning hours
+
   var diff = slotDT.diff(moment());
   var minFromNowToTimeSlot = moment.duration(diff).asMinutes();
 
