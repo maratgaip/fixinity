@@ -34,6 +34,7 @@ class Booking extends Component {
 
   componentDidMount () {
     this.onBook();
+    window.scrollTo( 0, 0 );
   }
 
   onBook = () => {
