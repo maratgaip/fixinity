@@ -20,6 +20,7 @@ class Booking extends Component {
 
   componentWillMount () {
     const { info: { color, device, issue, model, zipCode } } = this.props;
+    
     const infoFromStorage = JSON.parse(localStorage.getItem('info'));
     if (!(color.length && device.length && issue.length && model.length && zipCode.length)) {
       if (infoFromStorage) {
