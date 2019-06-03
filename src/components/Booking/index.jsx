@@ -188,7 +188,7 @@ class Booking extends Component {
                 <div>
                   <h4>Any questions or concerns?</h4>
                   <div className="contact-info">
-                    <span>415 943 3888</span> or <a href="mail:support@fixinity.com">support@fixinity.com</a>
+                    <span>(323) 906 - 7620</span> or <a href="mail:support@fixinity.com">support@fixinity.com</a>
                   </div>
                 </div>
               </ul>
