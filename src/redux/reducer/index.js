@@ -93,8 +93,8 @@ const initialState = {
       'ulan': 10,
       'ulanulan': 15,
     },
-    iphone: {
-      title: "Select iPhone Model",
+    bmw: {
+      title: "Select BWM Model",
       model:[
         { content: "8 Plus", url: "8-plus", id: "8-plus" },
         { content: "8", url: "8", id: "8" },
@@ -273,8 +273,8 @@ const initialState = {
         },
       },
     },
-    ipad: {
-      title: "Select iPad Model",
+    mercedes: {
+      title: "Select Mercedes Model",
       model:[
         { content: "iPad Air 2", url: "air-2/default", id: "air-2" },
         { content: "iPad Air", url: "air/default", id: "air" },

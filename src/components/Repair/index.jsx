@@ -6,20 +6,18 @@ import ipad from './assets/ipad.png';
 import Header from '../Common/Header';
 import './style.css';
 
-class RepairPhone extends Component {
+class RepairCar extends Component {
   render() {
     return (
       <Fragment>
         <Header />
         <div className="container">
         <div className="content-repair">
-          <Link to="/repair/iphone" className="box-device">
-            <h3>iPhone</h3>
-            <img src={iphone} height="200px"/>
+          <Link to="/repair/bmw" className="box-device">
+            <h3>BWM</h3>
           </Link>
-          <Link to="/repair/ipad" className="box-device">
-            <h3>iPad</h3>
-            <img src={ipad} height="200px"/>
+          <Link to="/repair/mercedes" className="box-device">
+            <h3>Mercedes</h3>
           </Link>
         </div>
         </div>
@@ -28,4 +26,4 @@ class RepairPhone extends Component {
   }
 }
 
-export default RepairPhone;
+export default RepairCar;
